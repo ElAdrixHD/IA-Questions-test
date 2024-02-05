@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Preguntas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Quiz de Preguntas</h1>
+        <div id="quiz-selection">
+            <label for="topic-select">Selecciona un tema:</label>
+            <select id="topic-select">
+                <!-- Las opciones se cargarán dinámicamente -->
+            </select>
+            <label for="question-count">Número de preguntas:</label>
+            <input type="number" id="question-count" min="1" value="5">
+            <button id="start-quiz">Iniciar Quiz</button>
+            <button id="export-pdf">Exportar preguntas a PDF</button>
+        </div>
+        <div id="quiz-questions" style="display:none;"></div>
+        <div id="quiz-results" style="display:none;"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
