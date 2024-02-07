@@ -56,12 +56,37 @@ document.addEventListener('DOMContentLoaded', function() {
             const answerOptions = question.answers;
             shuffleArray(answerOptions);
 
-            answerOptions.forEach(answer => {
-                const label = document.createElement('label');
-                label.innerHTML = `<input type="radio" name="question${index}" value="${answer.correct}"> ${answer.name}`;
-                questionDiv.appendChild(label);
-                questionDiv.appendChild(document.createElement('br'));
-            });
+            if (question.type === 'text') {
+                if(question.correctText === 'V' || question.correctText === 'F'){
+                     // **Pregunta de tipo "boolean"**
+                const trueLabel = document.createElement('label');
+                trueLabel.innerHTML = `<input type="radio" name="question${index}" value="V"> Verdadero`;
+                questionDiv.appendChild(trueLabel);
+
+                const falseLabel = document.createElement('label');
+                falseLabel.innerHTML = `<input type="radio" name="question${index}" value="F"> Falso`;
+                questionDiv.appendChild(falseLabel);
+                }
+                else{
+                    // **Pregunta de tipo "text"**
+                    const answerInput = document.createElement('input');
+                    answerInput.type = 'text';
+                    answerInput.name = `question${index}`;
+                    answerInput.placeholder = 'Escribe tu respuesta aquí';
+    
+                    questionDiv.appendChild(answerInput);
+                }
+                
+            } else {
+                answerOptions.forEach(answer => {
+                    const label = document.createElement('label');
+                    label.innerHTML = `<input type="radio" name="question${index}" value="${answer.correct}"> ${answer.name}`;
+                    questionDiv.appendChild(label);
+                    questionDiv.appendChild(document.createElement('br'));
+                });
+            }
+
+          
     
     
             quizQuestionsContainer.appendChild(questionDiv);
@@ -90,7 +115,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
             if (userAnswer) {
                 // Si el usuario seleccionó una respuesta, comprueba si es correcta
-                const isCorrect = userAnswer.value === 'true';
+                const isCorrect = (question.type === 'choice') ?
+                    userAnswer.value === 'true' : 
+                    userAnswer.value.toLowerCase() === question.correctText.toLowerCase(); // Compara con respuesta correcta
+
                 if (isCorrect) {
                     correctAnswers++;
                     userAnswer.parentElement.style.color = 'green';
