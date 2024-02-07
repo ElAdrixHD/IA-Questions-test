@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Limitar el número de preguntas a la cantidad seleccionada por el usuario
         const limitedQuestions = questionsArray.slice(0, questionCount);
     
+       
         limitedQuestions.forEach((question, index) => {
             const questionDiv = document.createElement('div');
             questionDiv.className = 'question';
@@ -51,12 +52,17 @@ document.addEventListener('DOMContentLoaded', function() {
             questionText.textContent = `${index + 1}. ${question.name}`;
             questionDiv.appendChild(questionText);
             
-            question.answers.forEach(answer => {
+            // Mezclar las opciones de respuesta
+            const answerOptions = question.answers;
+            shuffleArray(answerOptions);
+
+            answerOptions.forEach(answer => {
                 const label = document.createElement('label');
                 label.innerHTML = `<input type="radio" name="question${index}" value="${answer.correct}"> ${answer.name}`;
                 questionDiv.appendChild(label);
                 questionDiv.appendChild(document.createElement('br'));
             });
+    
     
             quizQuestionsContainer.appendChild(questionDiv);
         });
