@@ -51,6 +51,10 @@ input[type="number"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.bold{
+    font-weight: bold;
+}
+
 p.multichoice::after {
     content: "ELECCIÓN MÚLTIPLE";
     background-color: red;
