@@ -99,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const questionText = document.createElement('p');
 
-            questionText.textContent = `${index + 1}. ${question.name}`
+            questionText.textContent = `${index + 1}. ${question.name} `
+            questionText.classList.add('bold');
  
             // Si la pregunta es de tipo 'multichoice', añadir la clase 'multichoice'
             if (question.type === 'multichoice') {
