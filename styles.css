@@ -97,3 +97,11 @@ input[type="checkbox"] {
 #theme-select-container > label > span {
     margin-left: 8px;
 }
+
+.correct-answer {
+    margin-top: 8px;
+    padding: 5px;
+    font-size: 0.9em;
+    background-color: #e6ffe6;
+    border-left: 3px solid #009900;
+}

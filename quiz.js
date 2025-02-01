@@ -10,7 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Define una variable para almacenar los datos globalmente
      let globalData = {};
 
-    
+    // Función para decodificar secuencias Unicode en una cadena
+    function decodeUnicode(str) {
+        return str.replace(/\\u([\dA-Fa-f]{4})/g, (match, grp) =>
+            String.fromCharCode(parseInt(grp, 16))
+        );
+    }
+
     // Cargar los temas del JSON al iniciar
     fetch('schema.json')
         .then(response => response.json())
@@ -19,10 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
             topicSelect.appendChild(new Option("Selecciona una asignatura", "", true, true)); // Opción por defecto no seleccionable
             Object.keys(data).forEach(subject => {
                 let totalQuestions = Object.values(data[subject]).reduce((total, current) => total + current.length, 0);
-                let option = new Option(`${subject} (${totalQuestions} preguntas)`, subject);
+                let option = new Option(`${decodeUnicode(subject)} (${totalQuestions} preguntas)`, subject);
                 topicSelect.options[topicSelect.options.length] = option;
             });
-        });
+    })
+    .catch(error => console.error('Error cargando temas:', error));
 
     topicSelect.addEventListener('change', function() {
         const selectedSubject = topicSelect.value;
@@ -41,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             label.appendChild(checkbox); // Añade el checkbox al label
             
             let textSpan = document.createElement('span'); // Crea un span para el texto
-            textSpan.textContent = `${theme.replace(/\\u00f3/g, 'ó')} (${questionCount} preguntas)`;
+            textSpan.textContent = `${decodeUnicode(theme)} (${questionCount} preguntas)`;
             label.appendChild(textSpan); // Añade el span al label
             
             themeSelectContainer.appendChild(label);
@@ -99,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const questionText = document.createElement('p');
 
-            questionText.textContent = `${index + 1}. ${question.name} `
+            questionText.textContent = `${index + 1}. ${decodeUnicode(question.name)} `
             questionText.classList.add('bold');
  
             // Si la pregunta es de tipo 'multichoice', añadir la clase 'multichoice'
@@ -125,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     checkbox.name = `question${index}`;
                     checkbox.value = answer.correct;
                     label.appendChild(checkbox);
-                    label.append(` ${answer.name}`);
+                    label.append(` ${decodeUnicode(answer.name)}`);
                     card.appendChild(label);
                     card.appendChild(document.createElement('br'));
                 });
@@ -135,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 answerOptions.forEach(answer => {
                     const label = document.createElement('label');
-                    label.innerHTML = `<input type="radio" name="question${index}" value="${answer.correct}"> ${answer.name}`;
+                    label.innerHTML = `<input type="radio" name="question${index}" value="${answer.correct}"> ${decodeUnicode(answer.name)}`;
                     card.appendChild(label);
                     card.appendChild(document.createElement('br'));
                 });
@@ -161,44 +168,69 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 // ¿Cuál de las siguientes afirmaciones sobre Hadoop es falsa?
-    function calculateResults() {
-        const questions = document.querySelectorAll('.card');
-        let correctAnswers = 0;
-        
-        questions.forEach((card, index) => {
-            let isCorrect = false; // Asumimos que la respuesta es incorrecta inicialmente
-            const questionType = card.getAttribute('data-question-type');
-
+function calculateResults() {
+    const questions = document.querySelectorAll('.card');
+    let correctAnswers = 0;
     
-            if (questionType === 'choice' || questionType === 'multichoice') {
-                const userAnswers = card.querySelectorAll(`input:checked`);
-                let correctCount = 0;
-                userAnswers.forEach(userAnswer => {
-                    if (userAnswer.value === 'true') correctCount++; // Contamos las respuestas correctas seleccionadas por el usuario
-                });
-                
-                // Para preguntas de tipo 'choice', solo puede haber una respuesta correcta
-                if (questionType === 'choice' && correctCount === 1) isCorrect = true;
-                
-                // Para preguntas de tipo 'multichoice', todas las respuestas correctas deben ser seleccionadas y ninguna incorrecta
-                const totalCorrectAnswers = card.querySelectorAll(`input[value="true"]`).length;
-                if (questionType === 'multichoice' && correctCount === totalCorrectAnswers && userAnswers.length === totalCorrectAnswers) isCorrect = true;
-            } else if (questionType === 'text') {
-                // Aquí iría tu lógica para validar las respuestas de tipo texto
-                // ...
-            }
-    
-            // Cambiar el color de fondo de la card según si la respuesta es correcta o no
-            if (isCorrect) {
-                correctAnswers++;
-                card.style.backgroundColor = "#ccffcc"; // Verde pastel para respuestas correctas
-                card.setAttribute('data-correct', 'true'); // Marca la card como correcta
-            } else {
-                card.style.backgroundColor = "#ffcccc"; // Rojo pastel para respuestas incorrectas
-                card.removeAttribute('data-correct'); // Marca la card como incorrecta
+    questions.forEach((card, index) => {
+        let isCorrect = false;
+        const questionType = card.getAttribute('data-question-type');
+        let correctAnswerElement = card.querySelector('.correct-answer');
 
+        // Eliminar respuesta correcta anterior si existe
+        if (correctAnswerElement) correctAnswerElement.remove();
+
+        if (questionType === 'choice' || questionType === 'multichoice') {
+            const userAnswers = card.querySelectorAll(`input:checked`);
+            let correctCount = 0;
+            const correctOptions = [];
+            
+            // Obtener todas las respuestas correctas
+            card.querySelectorAll('input').forEach(input => {
+                if (input.value === 'true') correctOptions.push(input.parentElement.textContent.trim());
+            });
+
+            userAnswers.forEach(userAnswer => {
+                if (userAnswer.value === 'true') correctCount++;
+            });
+
+            // Crear elemento para mostrar respuesta correcta
+            const answerDiv = document.createElement('div');
+            answerDiv.className = 'correct-answer';
+            answerDiv.innerHTML = `<strong>Respuesta(s) correcta(s):</strong> ${correctOptions.join(', ')}`;
+            
+            // Lógica de validación
+            if (questionType === 'choice' && correctCount === 1) {
+                isCorrect = true;
+            } else if (questionType === 'multichoice' && correctCount === correctOptions.length && userAnswers.length === correctOptions.length) {
+                isCorrect = true;
             }
-        });    
+
+            if (!isCorrect) card.appendChild(answerDiv);
+
+        } else if (questionType === 'text') {
+            const input = card.querySelector('input[type="text"]');
+            const correctText = input.dataset.correctText;
+            const userAnswer = input.value.trim().toLowerCase();
+            
+            // Crear elemento para respuesta correcta
+            const answerDiv = document.createElement('div');
+            answerDiv.className = 'correct-answer';
+            answerDiv.innerHTML = `<strong>Respuesta correcta:</strong> ${correctText}`;
+            
+            isCorrect = (userAnswer === correctText.toLowerCase());
+            if (!isCorrect) card.appendChild(answerDiv);
+        }
+
+        // Estilo visual
+        if (isCorrect) {
+            correctAnswers++;
+            card.style.backgroundColor = "#ccffcc";
+        } else {
+            card.style.backgroundColor = "#ffcccc";
+            card.querySelector('.correct-answer').style.color = "#006600"; // Color para respuesta correcta
+        }
+    });
     
         if (questions.length > 0) {
             const score = (correctAnswers / questions.length) * 10;
