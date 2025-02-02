@@ -317,41 +317,107 @@ function calculateResults() {
     }
 
     document.getElementById('export-pdf').addEventListener('click', function() {
-    const selectedTopic = document.getElementById('topic-select').value;
+    const selectedSubject = topicSelect.value;
+     // Validaciones básicas
+     if (!selectedSubject) {
+        alert("Por favor, selecciona una asignatura primero.");
+        return;
+    }
     fetch('schema.json')
         .then(response => response.json())
         .then(data => {
-            const questions = data[selectedTopic];
-            generatePDF(questions, selectedTopic); 
+            const questions = data[selectedSubject];
+            generatePDF(questions, selectedSubject); 
         });
+    });
+
+    document.getElementById('export-selected-pdf').addEventListener('click', function() {
+        const selectedSubject = topicSelect.value;
+        const selectedThemes = Array.from(document.querySelectorAll('#theme-select-container input[type="checkbox"]:checked'))
+                                    .map(checkbox => checkbox.value);
+    
+        // Validaciones básicas
+        if (!selectedSubject) {
+            alert("Por favor, selecciona una asignatura primero.");
+            return;
+        }
+        if (selectedThemes.length === 0) {
+            alert("Por favor, selecciona al menos un tema.");
+            return;
+        }
+    
+        // Filtrar preguntas de los temas seleccionados
+        let filteredQuestions = [];
+        selectedThemes.forEach(theme => {
+            if (globalData[selectedSubject] && globalData[selectedSubject][theme]) {
+                filteredQuestions = filteredQuestions.concat(globalData[selectedSubject][theme]);
+            }
+        });
+    
+        if (filteredQuestions.length === 0) {
+            alert("No hay preguntas en los temas seleccionados.");
+            return;
+        }
+    
+        // Generar PDF con las preguntas filtradas
+        generatePDF({ "Temas Seleccionados": filteredQuestions }, selectedSubject);
     });
 
     function generatePDF(questions, subjectName) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-
-        let y = 10; // Posición inicial en el eje Y para el texto
-        let questionsArray = Object.values(questions).flat(); // Asumiendo estructura anidada
-
-        questionsArray.forEach((question, index) => {
-            doc.text(10, y, `${index + 1}. ${question.name}`);
-            y += 10; // Ajusta según sea necesario para tu formato
-            const correctAnswer = question.answers.find(answer => answer.correct);
-            if (correctAnswer) {
-                doc.text(15, y, `Respuesta correcta: ${correctAnswer.name}`);
-                y += 10; // Incrementa Y para la próxima pregunta
+        
+        // Configuración inicial
+        const margin = 10; 
+        const maxWidth = doc.internal.pageSize.getWidth() - 2 * margin;
+        let y = margin;
+        const lineHeight = 12;
+        
+        // Función para añadir texto con control de saltos de página
+        const addText = (text, isBold = false, isAnswerCorrect = false) => {
+            const fontSize = isAnswerCorrect ? 12 : (isBold ? 14 : 12);
+            doc.setFontSize(fontSize);
+            doc.setFont("helvetica", isAnswerCorrect ? "bold" : (isBold ? "bold" : "normal"));
+            
+            // Dividir el texto en líneas que quepan en el ancho
+            const splitText = doc.splitTextToSize(text, maxWidth);
+            
+            splitText.forEach(line => {
+                if (y + lineHeight > doc.internal.pageSize.getHeight() - margin) {
+                    doc.addPage();
+                    y = margin;
+                }
+                doc.text(line, margin, y);
+                y += lineHeight;
+            });
+        };
+    
+        // Generar contenido
+        Object.values(questions).flat().forEach((question, index) => {
+            // Añadir pregunta
+            addText(`${index + 1}. ${decodeUnicode(question.name)}`, true);
+            
+            // Añadir todas las respuestas
+            if(question.correctText == null){
+                question.answers.forEach((answer, ansIndex) => {
+                    const answerText = `${decodeUnicode(answer.name)}`;
+                    const isCorrect = answer.correct;
+                    
+                    if (isCorrect) {
+                        addText(`- Respuesta Correcta: ${answerText}`, false, true);
+                    } else {
+                        addText(`- ${answerText}`, false); 
+                    }
+                });
+            }else{
+                addText(`- Respuesta Correcta: ${question.correctText}`, false, true);
             }
-
-            // Asegúrate de no salirte de la página, si es necesario, añade una nueva
-            if (y > 280) {
-                doc.addPage();
-                y = 10; // Restablece la posición Y para la nueva página
-            }
+           
+            y += lineHeight * 0.5; // Espacio entre preguntas
         });
-
-        // Guarda el documento
-        const fileName = `${subjectName.replace(/[^a-zA-Z0-9]/g, '_')}_preguntas.pdf`;
-        // Guarda el documento con el nombre de la asignatura incluido
+    
+        // Guardar PDF
+        const fileName = `${decodeUnicode(subjectName).replace(/[^a-zA-Z0-9]/g, '_')}_preguntas.pdf`;
         doc.save(fileName);
     }
 
