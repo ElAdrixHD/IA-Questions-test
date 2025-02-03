@@ -167,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
-// ¿Cuál de las siguientes afirmaciones sobre Hadoop es falsa?
 function calculateResults() {
     const questions = document.querySelectorAll('.card');
     let correctAnswers = 0;
@@ -371,11 +370,11 @@ function calculateResults() {
         const margin = 10; 
         const maxWidth = doc.internal.pageSize.getWidth() - 2 * margin;
         let y = margin;
-        const lineHeight = 12;
+        const lineHeight = 10;
         
         // Función para añadir texto con control de saltos de página
         const addText = (text, isBold = false, isAnswerCorrect = false) => {
-            const fontSize = isAnswerCorrect ? 12 : (isBold ? 14 : 12);
+            const fontSize = isAnswerCorrect ? 8 : (isBold ? 10 : 8);
             doc.setFontSize(fontSize);
             doc.setFont("helvetica", isAnswerCorrect ? "bold" : (isBold ? "bold" : "normal"));
             
@@ -413,7 +412,7 @@ function calculateResults() {
                 addText(`- Respuesta Correcta: ${question.correctText}`, false, true);
             }
            
-            y += lineHeight * 0.5; // Espacio entre preguntas
+            y += lineHeight * 0.3; // Espacio entre preguntas
         });
     
         // Guardar PDF
