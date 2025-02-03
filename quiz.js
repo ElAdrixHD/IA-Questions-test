@@ -370,7 +370,7 @@ function calculateResults() {
         const margin = 10; 
         const maxWidth = doc.internal.pageSize.getWidth() - 2 * margin;
         let y = margin;
-        const lineHeight = 10;
+        const lineHeight = 8;
         
         // Función para añadir texto con control de saltos de página
         const addText = (text, isBold = false, isAnswerCorrect = false) => {
@@ -384,7 +384,7 @@ function calculateResults() {
             splitText.forEach(line => {
                 if (y + lineHeight > doc.internal.pageSize.getHeight() - margin) {
                     doc.addPage();
-                    y = margin;
+                    y = margin * 0.3;
                 }
                 doc.text(line, margin, y);
                 y += lineHeight;
@@ -403,13 +403,13 @@ function calculateResults() {
                     const isCorrect = answer.correct;
                     
                     if (isCorrect) {
-                        addText(`- Respuesta Correcta: ${answerText}`, false, true);
+                        addText(`- ${answerText}`, false, true);
                     } else {
                         addText(`- ${answerText}`, false); 
                     }
                 });
             }else{
-                addText(`- Respuesta Correcta: ${question.correctText}`, false, true);
+                addText(`- ${question.correctText}`, false, true);
             }
            
             y += lineHeight * 0.3; // Espacio entre preguntas
