@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const quizQuestionsContainer = document.getElementById('quiz-questions');
     const quizResultsContainer = document.getElementById('quiz-results');
     const themeSelectContainer = document.getElementById('theme-select-container');
+    const goToScrapperButton = document.getElementById('go-to-scrapper');
 
 
     // Define una variable para almacenar los datos globalmente
@@ -54,6 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
             themeSelectContainer.appendChild(label);
             themeSelectContainer.appendChild(document.createElement('br'));
         });
+    });
+
+    goToScrapperButton.addEventListener('click', function() {
+        console.log("Botón clickeado");
+        window.location.href = 'scrapper.html';
     });
 
     // Iniciar el quiz
