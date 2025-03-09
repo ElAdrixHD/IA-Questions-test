@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extractor de Preguntas</title>
+    <link rel="stylesheet" href="scrapper_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Extractor de Preguntas</h1>
+        
+        <!-- Selectores -->
+        <div class="selectors">
+            <select id="subjectSelect">
+                <option value="">Cargando asignaturas...</option>
+            </select>
+            <select id="topicSelect">
+                <option value="">Selecciona tema primero</option>
+            </select>
+        </div>
+        
+        <!-- Área principal -->
+        <textarea id="htmlInput" placeholder="Pega aquí tu código HTML..."></textarea>
+        <button id="processBtn">Procesar HTML</button>
+        <div class="results" id="results"></div>
+        <button id="saveBtn" class="save-btn">Guardar en schema</button>
+    </div>
+    <script src="scrapper.js"></script>
+</body>
+</html>

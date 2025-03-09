@@ -105,3 +105,9 @@ input[type="checkbox"] {
     background-color: #e6ffe6;
     border-left: 3px solid #009900;
 }
+
+.scrapper-btn {
+    background-color: #28a745;
+    margin-top: 15px;
+    width: 100%;
+}
