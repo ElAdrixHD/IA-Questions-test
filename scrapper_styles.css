@@ -1,0 +1,183 @@
+/* Estilos del Extractor de Preguntas */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Contenedor del textarea */
+.html-input-container {
+    position: relative;
+}
+
+#htmlInput {
+    resize: vertical;
+    min-height: 200px;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Estilos para los resultados */
+.results {
+    max-height: 600px;
+    overflow-y: auto;
+    border-radius: 0.25rem;
+}
+
+/* Estilo para las preguntas extraídas */
+.question {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid #007bff;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.question-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.question-type {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.type-select {
+    margin-left: 10px;
+    padding: 4px;
+}
+
+/* Estilos para listas de respuestas */
+.answer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.answer-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.answer-item label {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    cursor: pointer;
+}
+
+.answer-item input[type="checkbox"],
+.answer-item input[type="radio"] {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+/* Estilos para campos de texto */
+.text-field-container {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.text-field-container label {
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.correct-text-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Estilos para los selectores */
+.selectors select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* Estilos para botones */
+button {
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 768px) {
+    .question {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .question-text {
+        font-size: 1rem;
+    }
+
+    .question-type {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .type-select {
+        margin-left: 0;
+        margin-top: 8px;
+        width: 100%;
+    }
+    
+    .answer-item {
+        padding: 8px;
+    }
+    
+    .answer-item label {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        word-break: break-word;
+    }
+    
+    #htmlInput {
+        font-size: 12px;
+    }
+    
+    /* Mejor espaciado en controles de formulario para táctil */
+    input[type="checkbox"], 
+    input[type="radio"] {
+        min-width: 20px;
+        min-height: 20px;
+        margin-right: 12px;
+    }
+}
