@@ -22273,6 +22273,594 @@
         "type": "text",
         "correctText": "V",
         "answers": []
+      },
+      {
+        "name": "En BigML, cuando trabajo con mis propias bases de datos, si quiero prescindir de alguna categoría o descartar instancias incompletas o erróneas debo gestionarlo…",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Antes de cargar el recurso en el apartado “Sources”.",
+            "correct": false
+          },
+          {
+            "name": "Después de cargar el recurso en el apartado “Sources”, pero antes de generar el dataset.",
+            "correct": false
+          },
+          {
+            "name": "Se puede hacer después de haber generado el datset.",
+            "correct": false
+          },
+          {
+            "name": "Todas las respuestas anteriores son válidas.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Cómo te puedes crear una cuenta en BigML?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Con tu usuario de Amazon.",
+            "correct": false
+          },
+          {
+            "name": "Con tu usuario GitHub.",
+            "correct": false
+          },
+          {
+            "name": "Con tu usuario Google.",
+            "correct": false
+          },
+          {
+            "name": "Todas las respuestas anteriores son válidas.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Se puede dividir en BigML un dataset para realizar el entrenamiento con una parte de los datos y reservar la otra para hacer posteriormente una evaluación del modelo ya entrenado?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No.",
+            "correct": false
+          },
+          {
+            "name": "Sólo si se solicita a los administradores de la plataforma cuando les envías la base de datos por mail.",
+            "correct": false
+          },
+          {
+            "name": "Sí, pudiendo definir exactamente qué tanto porciento de datos dedicas en cada parte.",
+            "correct": true
+          },
+          {
+            "name": "Sí, pero te obligan a que sea siempre una separación del 80% para entrenamiento y 20% para evaluación.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Cómo puedes trabajar en la plataforma BigML con bases de datos propias (aportadas por ti)?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Cargando el archivo de dicha base de datos en el apartado “Source” y luego generando el dataset correspondiente.",
+            "correct": true
+          },
+          {
+            "name": "Enviando el archivo de dicha base de datos a los administradores de la plataforma por correo electrónico y solicitando que la den de alta en el apartado “Datasets”.",
+            "correct": false
+          },
+          {
+            "name": "Cargando directamente el archivo de dicha base de datos en el apartado “Datasets”.",
+            "correct": false
+          },
+          {
+            "name": "No se puede.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Para qué sirve la vista Scatterplot de los datasets en la plataforma BigML?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Para nada. No existe esa vista en BigML.",
+            "correct": false
+          },
+          {
+            "name": "La vista Scatterplot no está accesible en el apartado del dataset. Pertenece al entorno de evaluación del modelo ya entrenado.",
+            "correct": false
+          },
+          {
+            "name": "Es lo mismo que los histogramas, pero con una palabra más sofisticada.",
+            "correct": false
+          },
+          {
+            "name": "Para repasar relaciones entre las diferentes categorías de nuestro dataset, confrontándolas de dos en dos y ver las gráficas que generan.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En BigML puedes iniciar entrenamientos de dos formas:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Mentira, solo hay una única forma.",
+            "correct": false
+          },
+          {
+            "name": "De manera rápida (usando parámetros genéricos por la propia plataforma) o definiendo tú los parámetros disponibles para cada algoritmo.",
+            "correct": true
+          },
+          {
+            "name": "Supervisada y Por refuerzo.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las respuestas anteriores son válidas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En BigML la vista “prediction” que se puede visualizar en un modelo ya entrenado con el algoritmo de Árbol de Decisión representa:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Los valores del campo objetivo que ha encontrado para cada caso.",
+            "correct": true
+          },
+          {
+            "name": "La predicción del tiempo.",
+            "correct": false
+          },
+          {
+            "name": "La relación entre los datos esperados respecto a los predichos en la fase del dataset.",
+            "correct": false
+          },
+          {
+            "name": "Las tres respuestas anteriores son válidas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Si encuentro un dataset en la plataforma BigML que me gusta, ¿puedo descargar la base de datos correspondiente en formato .csv?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No.",
+            "correct": false
+          },
+          {
+            "name": "Sí, solicitándolo por mail a los administradores de la plataforma.",
+            "correct": false
+          },
+          {
+            "name": "Sí.",
+            "correct": true
+          },
+          {
+            "name": "Solo si el dataset ha sido incorporado a la plataforma por los administradores de la misma.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿BigML sirve para analizar los datos con los que se va a trabajar antes de hacer un entrenamiento de Aprendizaje Automático?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No.",
+            "correct": false
+          },
+          {
+            "name": "Sí, aunque no es la función principal de la plataforma.",
+            "correct": true
+          },
+          {
+            "name": "No, aunque te puedes descargar el archivos para hacer ese análisis por tu cuenta.",
+            "correct": false
+          },
+          {
+            "name": "Es la función principal de esta plataforma.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Los datasets que se pueden obtener en la propia plataforma de BigML han pasado un filtro para garantizar que tengan datos correctos, suficientes y coherentes. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Cómo representa gráficamente BigML un modelo entrenado con el algoritmo “cluster”?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Con un diagrama de árbol.",
+            "correct": false
+          },
+          {
+            "name": "Con cuadrados.",
+            "correct": false
+          },
+          {
+            "name": "Con círculos.",
+            "correct": true
+          },
+          {
+            "name": "Con gráficas X/Y en las que se pueden mostrar diferentes categorías en relación con el campo objetivo.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En BigML la vista “confidence” que se puede visualizar en un modelo ya entrenado con el algoritmo de Árbol de Decisión representa:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "La confidencia del modelo.",
+            "correct": true
+          },
+          {
+            "name": "La confitería del modelo.",
+            "correct": false
+          },
+          {
+            "name": "La confiabilidad del modelo.",
+            "correct": false
+          },
+          {
+            "name": "Las respuestas anteriores son todas correctas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Qué necesitas en BigML para poder hacer la evaluación de un modelo ya entrenado?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Mucha paciencia.",
+            "correct": false
+          },
+          {
+            "name": "Una base de datos que incluya también el campo objetivo en el entrenamiento, para que la herramienta pueda comparar caso a caso el resultado real con el pronosticado por el modelo.",
+            "correct": true
+          },
+          {
+            "name": "Introducir el mismo caso varias veces seguidas para ver si salen resultados distintos.",
+            "correct": false
+          },
+          {
+            "name": "Todas las respuestas anteriores son válidas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En BigML, en los modelos de entrenados con el algoritmo “cluster” no es posible hacer una evaluación posterior del modelo. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Para utilizar la plataforma BigML es obligatorio pagar una suscripción. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "A mayor número de instancias y categorías en un dataset mayor es el tiempo de cálculo en el entrenamiento. ¿Verdadero o falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En BigML solo puedes hacer entrenamientos a partir de los datasets que te ofrecen en la propia plataforma. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Qué significan los términos “Accuracy” y “Precision” que podemos encontrar en las evaluaciones de modelos ya entrenados en la plataforma BigML?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Exactitud y Precisión.",
+            "correct": true
+          },
+          {
+            "name": "Salud y Precisión.",
+            "correct": false
+          },
+          {
+            "name": "Ajuste y Precisión.",
+            "correct": false
+          },
+          {
+            "name": "Automático y Precisión.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Siempre que hagamos un modelo de Inteligencia Artificial (tanto con BigML como con cualquier otra plataforma) es conveniente reservar un 20% de los datos sin usarlos en la fase de entrenamiento para poder hacer posteriormente una evaluación realista del modelo. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Podemos utilizar el mismo dataset para hacer entrenamientos con algoritmos diferentes?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No.",
+            "correct": false
+          },
+          {
+            "name": "No es recomendable.",
+            "correct": false
+          },
+          {
+            "name": "Sí, de hecho es habitual en muchos casos para comparar niveles de exactitud y precisión alcanzados, para quedarse con el mejor modelo.",
+            "correct": true
+          },
+          {
+            "name": "Todas las respuestas anteriores son válidas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Qué datos de las categorías de unl dataset podemos previsualizar antes de decidir adquirirlo?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Su nombre y cantidad.",
+            "correct": false
+          },
+          {
+            "name": "Su nombre, tipología, cantidad, datos perdidos, datos erróneos y un histograma de distribución.",
+            "correct": true
+          },
+          {
+            "name": "Ninguno. Vamos a ciegas.",
+            "correct": false
+          },
+          {
+            "name": "Todas las respuestas anteriores son válidas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En BigML al terminar un entrenamiento de aprendizaje automático ves diferentes representaciones gráficas del modelo dependiendo del algoritmo que hayas utilizado en dicho entrenamiento. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En BigML, una vez terminado entrenamientos supervisados con algoritmo de Árbol de Decisión podemos hacer predicciones:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Introduciendo dato a dato un nuevo caso.",
+            "correct": false
+          },
+          {
+            "name": "Introduciendo a la vez todos los datos de una nueva instancia.",
+            "correct": false
+          },
+          {
+            "name": "Cargando a través de una base de dato múltiples casos a la vez.",
+            "correct": false
+          },
+          {
+            "name": "Todas las respuestas anteriores son válidas.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Es posible editar el nombre de las categorías de un dataset en BigML?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Sí, antes de lanzar el entrenamiento.",
+            "correct": true
+          },
+          {
+            "name": "Sí, después de haber hecho el entrenamiento.",
+            "correct": false
+          },
+          {
+            "name": "Sí, en cualquier fase.",
+            "correct": false
+          },
+          {
+            "name": "No.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Qué es BigML?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Un tipo de algoritmo para aprendizaje automático.",
+            "correct": false
+          },
+          {
+            "name": "Una herramienta para simular redes neuronales.",
+            "correct": false
+          },
+          {
+            "name": "Una plataforma online que permite plantear y resolver problemas de aprendizaje automático.",
+            "correct": true
+          },
+          {
+            "name": "Ninguna de las respuestas anteriores es correcta.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Puede haber datos erróneos o perdidos en un dataset aunque no nos lo indique BigML en la visualización de dicho dataset?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No.",
+            "correct": false
+          },
+          {
+            "name": "Normalmente no.",
+            "correct": false
+          },
+          {
+            "name": "Sí, cuando en la base de datos se hayan rellenado casillas vacías de forma automática con ceros u otra información genérica.",
+            "correct": true
+          },
+          {
+            "name": "Sí, cuando BigML falla.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En un entrenamiento de tipo “no supervisado” en BigML realizado con el algoritmo “cluster” podemos decidir hacerlo con K-Means (eligiendo nosotros el número de clusters) o con G-Means (dejando al propio modelo que decida cuántos clusters definir). ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Cuántos MB (mega bytes) puede tener una base de datos como máximo para poder trabajar con ella en la versión gratuita de BigML?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "4MB.",
+            "correct": false
+          },
+          {
+            "name": "8MB.",
+            "correct": false
+          },
+          {
+            "name": "12MB.",
+            "correct": false
+          },
+          {
+            "name": "16MB.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Existen tutoriales para aprender a utilizar BigML?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No.",
+            "correct": false
+          },
+          {
+            "name": "Sí, pero hechos por particulares y dispersos por Youtube.",
+            "correct": false
+          },
+          {
+            "name": "Sí, en la propia plataforma hay un buen número de vídeos tutoriales.",
+            "correct": true
+          },
+          {
+            "name": "No se sabe.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En la plataforma BigML podemos seleccionar varias categorías a la vez como campo objetivo para realizar un entrenamiento. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
       }
     ],
     "Casos pr\\u00e1cticos de aplicaci\\u00f3n": [
@@ -22933,6 +23521,610 @@
             "correct": false
           }
         ]
+      },
+      {
+        "name": "En un problema de clasificación ¿Para qué sirve la matriz de confusión?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Para saber si los errores se dan más prediciendo una clase o la otra.",
+            "correct": true
+          },
+          {
+            "name": "Para confundir al modelo y que salga más resiliente.",
+            "correct": false
+          },
+          {
+            "name": "Para saber qué operaciones matemáticas aplicar para corregir el modelo.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Aplicar técnicas de tipo “ensemble” ayuda a mejorar la precisión de un modelo, pero debe ser un modelo con los datos muy bien balanceados. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En la predicción de un modelo de aprendizaje automático, ¿qué es un falso positivo?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Es un caso que se predice como positivo pero en realidad es negativo",
+            "correct": true
+          },
+          {
+            "name": "Es un caso que se predice como positivo y realmente es positivo.",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como negativo pero en realidad es positivo.",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como negativo y realmente es negativo.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En los modelos de aprendizaje automático para casos de regresión, hay que considerar los datos anómalos y si queremos penalizar errores grandes o no. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Cómo se calcula el “accuracy” de un modelo entrenado?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "dividiendo el número de casos de una clase identificados correctamente por todos los casos reales de dicha clase.",
+            "correct": false
+          },
+          {
+            "name": "dividiendo el número de casos de una clase identificados correctamente por todos los casos de esa clase identificados por el modelo.",
+            "correct": false
+          },
+          {
+            "name": "Dividiendo el número de casos correctamente clasificados de todas las clases por el número total de casos.",
+            "correct": true
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En  la detección de anomalías en conjuntos de datos, tenemos que",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Las anomalías pueden representar casos o eventos sospechosos que requieren atención.",
+            "correct": true
+          },
+          {
+            "name": "Las anomalías siempre van a ser errores que se han cometido al recoger los datos mal.",
+            "correct": false
+          },
+          {
+            "name": "No se puede saber qué es un caso normal y qué es una anomalía.",
+            "correct": false
+          },
+          {
+            "name": "Lo mejor es eliminar las anomalías del dataset.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "El proceso de optimización de hiperparámetros no consume apenas recursos computacionales. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "La detección de anomalías (outliers) con PCA y Autoencoders es una estrategia no supervisada para identificar anomalías cuando los datos no están etiquetados, es decir, no se conoce la clasificación real (anomalía - no anomalía) de las observaciones. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "La técnica de sobremuestreo para casos de clasificación no balanceada consiste en",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "eliminar casos de la clase mayoritaria para igualar el número de casos entre clases.",
+            "correct": false
+          },
+          {
+            "name": "añadir casos a la clase minoritaria para igualar el número de casos entre clases.",
+            "correct": true
+          },
+          {
+            "name": "añadir errores a propósito en la clase mayoritaria para confundir al modelo.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Qué algoritmo de detección de anomalías se basa en que éstas son fáciles de separar?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Regresión logística.",
+            "correct": false
+          },
+          {
+            "name": "KNN",
+            "correct": false
+          },
+          {
+            "name": "Isolation Forest",
+            "correct": true
+          },
+          {
+            "name": "Redes neuronales profundas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Cuando tenemos un dataset con desequilibrio, suele ocurrir que obtenemos un alto valor de precisión en la clase mayoritaria y un bajo recall en la clase minoritaria. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En los modelos de aprendizaje automático no es problema que los datos estén desbalanceados si se utiliza la métrica correcta para evaluarlo. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Cómo se calcula el “recall” de un modelo entrenado?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "dividiendo el número de casos de una clase identificados correctamente por todos los casos reales de dicha clase.",
+            "correct": true
+          },
+          {
+            "name": "dividiendo el número de casos de una clase identificados correctamente por todos los casos de esa clase identificados por el modelo.",
+            "correct": false
+          },
+          {
+            "name": "Dividiendo el número de casos correctamente clasificados de todas las clases por el número total de casos.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Qué es un problema de clasificación no balanceado?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "aquel en el que ningún modelo consigue entrenarse adecuadamente.",
+            "correct": false
+          },
+          {
+            "name": "son problemas en los que no necesitamos datos externos.",
+            "correct": false
+          },
+          {
+            "name": "aquel en el que hay muchísimos datos disponibles",
+            "correct": false
+          },
+          {
+            "name": "es un problema en el que el conjunto de datos tiene muchos más casos de una clase que de otra u otras.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En la predicción de un modelo de aprendizaje automático, ¿qué es un verdadero positivo?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Es un caso que se predice como positivo pero en realidad es negativo",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como positivo y realmente es positivo.",
+            "correct": true
+          },
+          {
+            "name": "Es un caso que se predice como negativo pero en realidad es positivo.",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como negativo y realmente es negativo.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿En qué sectores encontramos problemas de clasificación muy desbalanceados?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "En el área de la salud.",
+            "correct": false
+          },
+          {
+            "name": "En el ámbito del fraude.",
+            "correct": false
+          },
+          {
+            "name": "En el estudio de un funnel de marketing.",
+            "correct": false
+          },
+          {
+            "name": "En todos ellos.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "A la hora de buscar los hiperparámetros óptimos para tener un buen modelo…",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Se suele hacer a ciegas.",
+            "correct": false
+          },
+          {
+            "name": "se suele utilizar la métrica de accuracy para guiar el proceso.",
+            "correct": false
+          },
+          {
+            "name": "se busca que el proceso sea muy rápido.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En la técnica Random Search para buscar los hiperparámetros óptimos",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "se modifican aleatoriamente las soluciones previamente generadas en el espacio de búsqueda.",
+            "correct": true
+          },
+          {
+            "name": "se utilizan valores de hiperparámetros distribuidos en el espacio de búsqueda siguiendo una distribución con forma de red.",
+            "correct": false
+          },
+          {
+            "name": "se utilizan los hiperparámetros recomendados por el diseñador del modelo.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "La técnica de submuestreo para casos de clasificación no balanceada consiste en",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "eliminar casos de la clase mayoritaria para igualar el número de casos entre clases.",
+            "correct": true
+          },
+          {
+            "name": "añadir casos a la clase minoritaria para igualar el número de casos entre clases.",
+            "correct": false
+          },
+          {
+            "name": "añadir errores a propósito en la clase mayoritaria para confundir al modelo.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "La optimización de hiper-parámetros se realiza normalmente mediante la utilización de un proceso de búsqueda cuyo objetivo consiste en encontrar la mejor selección de valores para un conjunto finito de hiper-parámetros con el objetivo de generar el mejor modelo posible. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En la validación cruzada de k iteraciones, el valor de k corresponde a",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "El número de casos en cada muestra.",
+            "correct": false
+          },
+          {
+            "name": "El coeficiente de reducción que se aplica al error.",
+            "correct": false
+          },
+          {
+            "name": "El número total de los datos del dataset.",
+            "correct": false
+          },
+          {
+            "name": "El número de iteraciones que se van a hacer.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En la predicción de un modelo de aprendizaje automático, ¿qué es un falso negativo?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Es un caso que se predice como positivo pero en realidad es negativo",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como positivo y realmente es positivo.",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como negativo pero en realidad es positivo.",
+            "correct": true
+          },
+          {
+            "name": "Es un caso que se predice como negativo y realmente es negativo.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En la validación cruzada aleatoria, el bloque de validación se escoge:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "buscando el caso con el valor más alto de entropía.",
+            "correct": false
+          },
+          {
+            "name": "de forma aleatoria.",
+            "correct": true
+          },
+          {
+            "name": "seleccionando el último caso entrenado.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En la técnica Grid Search para buscar los hiperparámetros óptimos",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "se modifican aleatoriamente las soluciones previamente generadas en el espacio de búsqueda.",
+            "correct": false
+          },
+          {
+            "name": "se utilizan valores de hiperparámetros distribuidos en el espacio de búsqueda siguiendo una distribución con forma de red.",
+            "correct": true
+          },
+          {
+            "name": "se utilizan los hiperparámetros recomendados por el diseñador del modelo.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Para qué es necesario evaluar un modelo de aprendizaje automático?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Para saber si las predicciones que nos de son buenas y nos podemos fiar.",
+            "correct": true
+          },
+          {
+            "name": "Para saber si los datos tienen mucho sesgo.",
+            "correct": false
+          },
+          {
+            "name": "Para obtener un coeficiente por el que hay que multiplicar todos los valores del dataset y actualizarlo.",
+            "correct": false
+          },
+          {
+            "name": "Para poder puntuar el dataset y que otros científicos sepan si es bueno o no.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Qué es la validación cruzada a la hora de evaluar un modelo?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Consiste en repetir y calcular la media aritmética obtenida de las medidas de evaluación sobre diferentes particiones del conjunto de datos.",
+            "correct": true
+          },
+          {
+            "name": "Consiste en cruzar los datos que tenemos con los de otro compañero y calcular cada uno el error del otro.",
+            "correct": false
+          },
+          {
+            "name": "Consiste en calcular el error de los datos de entrenamiento en vez de utilizar los de test.",
+            "correct": false
+          },
+          {
+            "name": "Consiste en calcular la métrica de evaluación y buscar su valor simétrico respecto del eje horizontal.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En la predicción de un modelo de aprendizaje automático, ¿qué es un verdadero negativo?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Es un caso que se predice como positivo pero en realidad es negativo",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como positivo y realmente es positivo.",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como negativo pero en realidad es positivo.",
+            "correct": false
+          },
+          {
+            "name": "Es un caso que se predice como negativo y realmente es negativo.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "La principal desventaja de la validación cruzada dejando uno fuera es",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "que hay riesgo de perder información.",
+            "correct": false
+          },
+          {
+            "name": "que es muy probable que haya overfitting.",
+            "correct": false
+          },
+          {
+            "name": "que es un proceso muy costoso computacionalmente.",
+            "correct": true
+          },
+          {
+            "name": "que se van perdiendo datos a lo largo del proceso.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Qué métrica de evaluación de modelos de regresión penaliza los errores grandes?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "El error medio absoluto.",
+            "correct": false
+          },
+          {
+            "name": "El accuracy",
+            "correct": false
+          },
+          {
+            "name": "El error cuadrático medio.",
+            "correct": true
+          },
+          {
+            "name": "El recall.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Cómo se calcula el valor de la métrica “precision” de un modelo entrenado?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "dividiendo el número de casos de una clase identificados correctamente por todos los casos reales de dicha clase.",
+            "correct": false
+          },
+          {
+            "name": "dividiendo el número de casos de una clase identificados correctamente por todos los casos de esa clase identificados por el modelo.",
+            "correct": true
+          },
+          {
+            "name": "Dividiendo el número de casos correctamente clasificados de todas las clases por el número total de casos.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
       }
     ],
     "T\\u00e9cnicas avanzadas y evaluaci\\u00f3n del modelo": [
@@ -23555,6 +24747,70 @@
           {
             "name": "En todos ellos.",
             "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Cuando tenemos un dataset con desequilibrio, suele ocurrir que obtenemos un alto valor de precisión en la clase mayoritaria y un bajo recall en la clase minoritaria. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En los modelos de aprendizaje automático para casos de regresión, hay que considerar los datos anómalos y si queremos penalizar errores grandes o no. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En  la detección de anomalías en conjuntos de datos, tenemos que",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Las anomalías pueden representar casos o eventos sospechosos que requieren atención.",
+            "correct": true
+          },
+          {
+            "name": "Las anomalías siempre van a ser errores que se han cometido al recoger los datos mal.",
+            "correct": false
+          },
+          {
+            "name": "No se puede saber qué es un caso normal y qué es una anomalía.",
+            "correct": false
+          },
+          {
+            "name": "Lo mejor es eliminar las anomalías del dataset.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "La detección de anomalías (outliers) con PCA y Autoencoders es una estrategia no supervisada para identificar anomalías cuando los datos no están etiquetados, es decir, no se conoce la clasificación real (anomalía - no anomalía) de las observaciones. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
           }
         ]
       }
