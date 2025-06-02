@@ -10073,29 +10073,6 @@
         ]
       },
       {
-        "name": "C\\u00f3mo se llaman los datos que llegan a un Data Lake y que son almacenados tal cual, sin ser transformados?:",
-        "type": "choice",
-        "correctText": null,
-        "answers": [
-          {
-            "name": "a) Raw data.",
-            "correct": true
-          },
-          {
-            "name": "b) Refined data.",
-            "correct": false
-          },
-          {
-            "name": "c) Datos de origen.",
-            "correct": false
-          },
-          {
-            "name": "d) Golden source.",
-            "correct": false
-          }
-        ]
-      },
-      {
         "name": "\\u00bfA qu\\u00e9 se refiere el concepto \"industrializaci\\u00f3n\" en relaci\\u00f3n con las actividades de ingenier\\u00eda de datos?:",
         "type": "choice",
         "correctText": null,
@@ -15120,12 +15097,6 @@
         ]
       },
       {
-        "name": "En GPT3, el par\\u00e1metro \\u201ctemperatura\\u201d permite ajustar el grado de creatividad que queremos que tenga la respuesta. \\u00bfVerdadero o Falso?",
-        "type": "text",
-        "correctText": "V",
-        "answers": []
-      },
-      {
         "name": "Azure Cognitive Services est\\u00e1 totalmente enfocado en procesamiento de datos y de texto, por lo que no cuenta con servicios de reconocimiento de imagen ni visi\\u00f3n artificial. \\u00bfVerdadero o Falso?",
         "type": "choice",
         "correctText": null,
@@ -15139,12 +15110,6 @@
             "correct": true
           }
         ]
-      },
-      {
-        "name": "Entre los servicios de Azure Cognitive Services, hay uno enfocado en la detecci\\u00f3n de anomal\\u00edas. \\u00bfVerdadero o Falso?",
-        "type": "text",
-        "correctText": "V",
-        "answers": []
       },
       {
         "name": "\\u00bfCu\\u00e1l es la API de Google Cloud Platform para reconocimiento de im\\u00e1genes?",
@@ -15300,67 +15265,6 @@
         ]
       },
       {
-        "name": "\\u00bfCu\\u00e1l es el servicio de AWS que nos permite crear y entrenar un modelo de aprendizaje autom\\u00e1tico utilizando\nnotebooks?",
-        "type": "choice",
-        "correctText": null,
-        "answers": [
-          {
-            "name": "Rekognition",
-            "correct": false
-          },
-          {
-            "name": "DynamoDB",
-            "correct": false
-          },
-          {
-            "name": "SageMaker",
-            "correct": true
-          },
-          {
-            "name": "Comprehend",
-            "correct": false
-          }
-        ]
-      },
-      {
-        "name": "Azure Cognitive Services est\\u00e1 totalmente enfocado en procesamiento de datos y de texto, por lo que no cuenta\ncon servicios de reconocimiento de imagen ni visi\\u00f3n artificial. \\u00bfVerdadero o Falso?",
-        "type": "choice",
-        "correctText": null,
-        "answers": [
-          {
-            "name": "Verdadero",
-            "correct": false
-          },
-          {
-            "name": "Falso",
-            "correct": true
-          }
-        ]
-      },
-      {
-        "name": "\\u00bfCu\\u00e1l es el nombre gen\\u00e9rico que reciben los servicios cognitivos de IBM para crear aplicaciones de inteligencia\nartificial en la nube?",
-        "type": "choice",
-        "correctText": null,
-        "answers": [
-          {
-            "name": "DeepBlue",
-            "correct": false
-          },
-          {
-            "name": "Watson",
-            "correct": true
-          },
-          {
-            "name": "GPT3",
-            "correct": false
-          },
-          {
-            "name": "AutoML",
-            "correct": false
-          }
-        ]
-      },
-      {
         "name": "\\u00bfCu\\u00e1les son las siglas del servicio de computaci\\u00f3n en la nube de Amazon?",
         "type": "choice",
         "correctText": null,
@@ -15486,21 +15390,6 @@
           {
             "name": "Falso",
             "correct": false
-          }
-        ]
-      },
-      {
-        "name": "Auto ML solo permite trabajar con modelos de datos tabulares para anal\\u00edtica avanzada y predicciones.\n\\u00bfVerdadero o Falso?",
-        "type": "choice",
-        "correctText": null,
-        "answers": [
-          {
-            "name": "Verdadero",
-            "correct": false
-          },
-          {
-            "name": "Falso",
-            "correct": true
           }
         ]
       },
@@ -15631,21 +15520,6 @@
           {
             "name": "sudo",
             "correct": false
-          }
-        ]
-      },
-      {
-        "name": "Dialogflow solo nos permite crear chatbots para dar conversaci\\u00f3n al usuario. No se pueden ejecutar acciones en aplicaciones conectadas. \\u00bfVerdadero o Falso?",
-        "type": "choice",
-        "correctText": null,
-        "answers": [
-          {
-            "name": "Verdadero",
-            "correct": false
-          },
-          {
-            "name": "Falso",
-            "correct": true
           }
         ]
       },
@@ -15873,12 +15747,6 @@
             "correct": false
           }
         ]
-      },
-      {
-        "name": "El lenguaje Notebook es de tipo agn\\u00f3stico, es decir, permite trabajar con diferentes lenguajes de programaci\\u00f3n de la misma manera y con las mismas ventajas. \\u00bfVerdadero o Falso?",
-        "type": "text",
-        "correctText": "V",
-        "answers": []
       },
       {
         "name": "\\u00bfCu\\u00e1nto tiempo puedo tener un entrenamiento de un modelo proces\\u00e1ndose en Colab sin interrupci\\u00f3n?",
@@ -16342,29 +16210,6 @@
           {
             "name": "Porque solo se puede utilizar Tensorflow en Jupyter Notebook",
             "correct": false
-          }
-        ]
-      },
-      {
-        "name": "Los IDEs Visual Studio Code y Pycharm  proveen de herramientas para:",
-        "type": "choice",
-        "correctText": null,
-        "answers": [
-          {
-            "name": "Hacer tests.",
-            "correct": false
-          },
-          {
-            "name": "Depurar el c\\u00f3digo.",
-            "correct": false
-          },
-          {
-            "name": "Refactorizar.",
-            "correct": false
-          },
-          {
-            "name": "Todas las anteriores.",
-            "correct": true
           }
         ]
       },
@@ -22273,6 +22118,28 @@
         "type": "text",
         "correctText": "V",
         "answers": []
+      },
+      {
+        "name": "¿Cuál de los siguientes algoritmos no se utiliza para aplicaciones de síntesis de voz?\n_____.",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "LSTM",
+            "correct": false
+          },
+          {
+            "name": "AE y todas sus variantes.",
+            "correct": false
+          },
+          {
+            "name": "DCN.",
+            "correct": false
+          },
+          {
+            "name": "Todas las respuestas anteriores son correctas",
+            "correct": true
+          }
+        ]
       }
     ],
     "Casos pr\\u00e1cticos de aplicaci\\u00f3n": [
@@ -22933,6 +22800,180 @@
             "correct": false
           }
         ]
+      },
+      {
+        "name": "En BigML la vista “confidence” que se puede visualizar en un modelo ya entrenado con el algoritmo de Árbol de Decisión representa:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "La confidencia del modelo.",
+            "correct": false
+          },
+          {
+            "name": "La confitería del modelo.",
+            "correct": false
+          },
+          {
+            "name": "La confiabilidad del modelo.",
+            "correct": true
+          },
+          {
+            "name": "Las respuestas anteriores son todas correctas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Cuántos MB (mega bytes) puede tener una base de datos como máximo para poder trabajar con ella en la versión gratuita de BigML?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "4MB.",
+            "correct": false
+          },
+          {
+            "name": "8MB.",
+            "correct": false
+          },
+          {
+            "name": "12MB.",
+            "correct": false
+          },
+          {
+            "name": "16MB.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En BigML, cuando trabajo con mis propias bases de datos, si quiero prescindir de alguna categoría o descartar instancias incompletas o erróneas debo gestionarlo…",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Antes de cargar el recurso en el apartado “Sources”.",
+            "correct": false
+          },
+          {
+            "name": "Después de cargar el recurso en el apartado “Sources”, pero antes de generar el dataset.",
+            "correct": true
+          },
+          {
+            "name": "Se puede hacer después de haber generado el datset.",
+            "correct": false
+          },
+          {
+            "name": "Todas las respuestas anteriores son válidas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Cómo representa gráficamente BigML un modelo entrenado con el algoritmo “cluster”?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Con un diagrama de árbol.",
+            "correct": false
+          },
+          {
+            "name": "Con cuadrados.",
+            "correct": false
+          },
+          {
+            "name": "Con círculos.",
+            "correct": true
+          },
+          {
+            "name": "Con gráficas X/Y en las que se pueden mostrar diferentes categorías en relación con el campo objetivo.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "A mayor número de instancias y categorías en un dataset mayor es el tiempo de cálculo en el entrenamiento. ¿Verdadero o falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En la plataforma BigML podemos seleccionar varias categorías a la vez como campo objetivo para realizar un entrenamiento. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En BigML la vista “prediction” que se puede visualizar en un modelo ya entrenado con el algoritmo de Árbol de Decisión representa:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Los valores del campo objetivo que ha encontrado para cada caso.",
+            "correct": true
+          },
+          {
+            "name": "La predicción del tiempo.",
+            "correct": false
+          },
+          {
+            "name": "La relación entre los datos esperados respecto a los predichos en la fase del dataset.",
+            "correct": false
+          },
+          {
+            "name": "Las tres respuestas anteriores son válidas.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En un entrenamiento de tipo “no supervisado” en BigML realizado con el algoritmo “cluster” podemos decidir hacerlo con K-Means (eligiendo nosotros el número de clusters) o con G-Means (dejando al propio modelo que decida cuántos clusters definir). ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Qué datos de las categorías de unl dataset podemos previsualizar antes de decidir adquirirlo?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Su nombre y cantidad.",
+            "correct": false
+          },
+          {
+            "name": "Su nombre, tipología, cantidad, datos perdidos, datos erróneos y un histograma de distribución.",
+            "correct": true
+          },
+          {
+            "name": "Ninguno. Vamos a ciegas.",
+            "correct": false
+          },
+          {
+            "name": "Todas las respuestas anteriores son válidas.",
+            "correct": false
+          }
+        ]
       }
     ],
     "T\\u00e9cnicas avanzadas y evaluaci\\u00f3n del modelo": [
@@ -23374,29 +23415,6 @@
         ]
       },
       {
-        "name": "\\u00bfEn qu\\u00e9 sectores encontramos problemas de clasificaci\\u00f3n muy desbalanceados",
-        "type": "choice",
-        "correctText": null,
-        "answers": [
-          {
-            "name": "a) En el \\u00e1rea de la salud.",
-            "correct": false
-          },
-          {
-            "name": "b) En el \\u00e1mbito del fraude.",
-            "correct": false
-          },
-          {
-            "name": "c) En el estudio de un funnel de marketing.",
-            "correct": false
-          },
-          {
-            "name": "d) En todos ellos.",
-            "correct": true
-          }
-        ]
-      },
-      {
         "name": "La t\\u00e9cnica de sobremuestreo para casos de clasificaci\\u00f3n no balanceada consiste en",
         "type": "choice",
         "correctText": null,
@@ -23555,6 +23573,70 @@
           {
             "name": "En todos ellos.",
             "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Cuando tenemos un dataset con desequilibrio, suele ocurrir que obtenemos un alto valor de precisión en la clase mayoritaria y un bajo recall en la clase minoritaria. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": " Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En los modelos de aprendizaje automático para casos de regresión, hay que considerar los datos anómalos y si queremos penalizar errores grandes o no. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En  la detección de anomalías en conjuntos de datos, tenemos que",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Las anomalías pueden representar casos o eventos sospechosos que requieren atención.",
+            "correct": true
+          },
+          {
+            "name": "Las anomalías siempre van a ser errores que se han cometido al recoger los datos mal.",
+            "correct": false
+          },
+          {
+            "name": "No se puede saber qué es un caso normal y qué es una anomalía.",
+            "correct": false
+          },
+          {
+            "name": "Lo mejor es eliminar las anomalías del dataset.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "La detección de anomalías (outliers) con PCA y Autoencoders es una estrategia no supervisada para identificar anomalías cuando los datos no están etiquetados, es decir, no se conoce la clasificación real (anomalía - no anomalía) de las observaciones. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
+            "correct": false
           }
         ]
       }

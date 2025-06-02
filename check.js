@@ -3,6 +3,22 @@
 const fs = require('fs');
 const filePath = 'schema.json';
 
+// Función para decodificar secuencias Unicode en una cadena
+function decodeUnicode(str) {
+  return str.replace(/\\u([\dA-Fa-f]{4})/g, (match, grp) =>
+    String.fromCharCode(parseInt(grp, 16))
+  );
+}
+
+// Función para normalizar el texto de las preguntas para comparación
+function normalizeQuestionText(text) {
+  return decodeUnicode(text)
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ') // Normalizar espacios múltiples
+    .replace(/[¿?¡!]/g, ''); // Quitar signos de puntuación de apertura/cierre
+}
+
 // Leer el fichero schema.json
 fs.readFile(filePath, 'utf8', (err, data) => {
   if (err) {
@@ -13,17 +29,48 @@ fs.readFile(filePath, 'utf8', (err, data) => {
   try {
     const jsonData = JSON.parse(data);
     console.log('JSON cargado correctamente.');
+    console.log('=====================================\n');
     
     // Validar la estructura del JSON
     const errors = validateSchema(jsonData);
     
     if (errors.length > 0) {
-      console.error('Se encontraron errores en el esquema:');
-      errors.forEach(error => console.error('- ' + error));
-      process.exit(1);
+      console.error('❌ Se encontraron errores en el esquema:');
+      errors.forEach(error => console.error('  - ' + error));
     } else {
-      console.log('El esquema es válido.');
+      console.log('✅ La estructura del esquema es válida.');
     }
+    
+    console.log('\n=====================================\n');
+    
+    // Buscar preguntas duplicadas
+    const duplicates = findDuplicateQuestions(jsonData);
+    
+    if (duplicates.length > 0) {
+      console.warn('⚠️  Se encontraron preguntas duplicadas:\n');
+      duplicates.forEach((duplicate, index) => {
+        console.log(`${index + 1}. Pregunta: "${decodeUnicode(duplicate.questionText)}"`);
+        console.log('   Encontrada en:');
+        duplicate.locations.forEach(loc => {
+          console.log(`     - Asignatura: ${decodeUnicode(loc.subject)} | Tema: ${decodeUnicode(loc.theme)} | Posición: ${loc.index + 1}`);
+        });
+        console.log('');
+      });
+      console.log(`Total de preguntas duplicadas: ${duplicates.length}`);
+    } else {
+      console.log('✅ No se encontraron preguntas duplicadas.');
+    }
+    
+    console.log('\n=====================================\n');
+    
+    // Mostrar estadísticas
+    showStatistics(jsonData);
+    
+    // Determinar código de salida
+    if (errors.length > 0) {
+      process.exit(1);
+    }
+    
   } catch (parseError) {
     console.error('Error de parseo del JSON:', parseError.message);
     process.exit(1);
@@ -108,4 +155,106 @@ function validateSchema(data) {
   }
 
   return errors;
+}
+
+/**
+ * Función para encontrar preguntas duplicadas en el schema.
+ * @param {object} data - El JSON parseado del schema.
+ * @returns {Array} Array de objetos con información sobre duplicados.
+ */
+function findDuplicateQuestions(data) {
+  const questionMap = new Map();
+  const duplicates = [];
+  
+  // Recorrer todas las preguntas y crear un mapa
+  for (const subject in data) {
+    for (const theme in data[subject]) {
+      const questions = data[subject][theme];
+      
+      if (Array.isArray(questions)) {
+        questions.forEach((question, index) => {
+          if (question.name) {
+            const normalizedText = normalizeQuestionText(question.name);
+            
+            if (!questionMap.has(normalizedText)) {
+              questionMap.set(normalizedText, []);
+            }
+            
+            questionMap.get(normalizedText).push({
+              subject,
+              theme,
+              index,
+              originalText: question.name
+            });
+          }
+        });
+      }
+    }
+  }
+  
+  // Identificar duplicados
+  questionMap.forEach((locations, normalizedText) => {
+    if (locations.length > 1) {
+      duplicates.push({
+        questionText: locations[0].originalText,
+        normalizedText,
+        locations: locations
+      });
+    }
+  });
+  
+  return duplicates;
+}
+
+/**
+ * Función para mostrar estadísticas del schema.
+ * @param {object} data - El JSON parseado del schema.
+ */
+function showStatistics(data) {
+  console.log('📊 Estadísticas del schema:');
+  console.log('----------------------------');
+  
+  let totalQuestions = 0;
+  let totalSubjects = 0;
+  let totalThemes = 0;
+  const questionTypes = {};
+  
+  for (const subject in data) {
+    totalSubjects++;
+    console.log(`\n📚 ${decodeUnicode(subject)}:`);
+    
+    let subjectQuestions = 0;
+    
+    for (const theme in data[subject]) {
+      totalThemes++;
+      const questions = data[subject][theme];
+      
+      if (Array.isArray(questions)) {
+        const themeQuestionCount = questions.length;
+        subjectQuestions += themeQuestionCount;
+        totalQuestions += themeQuestionCount;
+        
+        console.log(`   📌 ${decodeUnicode(theme)}: ${themeQuestionCount} preguntas`);
+        
+        // Contar tipos de preguntas
+        questions.forEach(q => {
+          if (q.type) {
+            questionTypes[q.type] = (questionTypes[q.type] || 0) + 1;
+          }
+        });
+      }
+    }
+    
+    console.log(`   Total en ${decodeUnicode(subject)}: ${subjectQuestions} preguntas`);
+  }
+  
+  console.log('\n----------------------------');
+  console.log(`Total de asignaturas: ${totalSubjects}`);
+  console.log(`Total de temas: ${totalThemes}`);
+  console.log(`Total de preguntas: ${totalQuestions}`);
+  
+  console.log('\nDistribución por tipo de pregunta:');
+  for (const type in questionTypes) {
+    console.log(`   - ${type}: ${questionTypes[type]} preguntas`);
+  }
 }

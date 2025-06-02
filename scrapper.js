@@ -21,15 +21,15 @@ function showAlert(message, type = 'danger') {
     `;
     
     // Insertar alerta antes del área de procesamiento
-    const htmlInput = document.getElementById('htmlInput');
-    htmlInput.parentNode.parentNode.insertBefore(alertDiv, htmlInput.parentNode);
+    const saveBtn = document.getElementById('saveBtn');
+    saveBtn.parentNode.parentNode.insertBefore(alertDiv, saveBtn.parentNode);
     
     // Auto-eliminar después de 5 segundos
     setTimeout(() => {
         if (alertDiv && alertDiv.parentNode) {
             alertDiv.parentNode.removeChild(alertDiv);
         }
-    }, 5000);
+    }, 20000);
 }
 
 // Función para controlar el estado de procesamiento en la UI
@@ -549,10 +549,289 @@ document.getElementById('processBtn').addEventListener('click', () => {
     }, 300);
 });
 
+// Funcionalidad para unificar schemas
+let mergeModal = null;
+
+// Inicializar funcionalidad de unificación cuando el DOM esté listo
+window.addEventListener('load', function() {
+    // Inicializar modal
+    mergeModal = new bootstrap.Modal(document.getElementById('mergeModal'));
+    
+    // Event listener para el botón de unificar
+    document.getElementById('mergeBtn').addEventListener('click', function() {
+        mergeModal.show();
+        // Resetear el formulario
+        document.getElementById('schemaFiles').value = '';
+        document.getElementById('processMergeBtn').disabled = true;
+        document.getElementById('mergeStatus').classList.add('d-none');
+        document.getElementById('mergeResults').classList.add('d-none');
+    });
+    
+    // Event listener para cuando se seleccionan archivos
+    document.getElementById('schemaFiles').addEventListener('change', function(e) {
+        const files = e.target.files;
+        if (files.length > 0) {
+            document.getElementById('processMergeBtn').disabled = false;
+            updateMergeStatus(`${files.length} archivo(s) seleccionado(s)`, 'info');
+        } else {
+            document.getElementById('processMergeBtn').disabled = true;
+        }
+    });
+    
+    // Event listener para procesar y unificar
+    document.getElementById('processMergeBtn').addEventListener('click', processAndMergeSchemas);
+});
+
+// Función para actualizar el estado del merge
+function updateMergeStatus(message, type = 'info') {
+    const statusDiv = document.getElementById('mergeStatus');
+    const statusText = document.getElementById('mergeStatusText');
+    
+    statusDiv.className = `alert alert-${type}`;
+    statusText.textContent = message;
+    statusDiv.classList.remove('d-none');
+}
+
+// Función para validar el formato del schema
+function validateSchemaFormat(schema) {
+    if (typeof schema !== 'object' || schema === null || Array.isArray(schema)) {
+        return { valid: false, error: 'El schema debe ser un objeto' };
+    }
+    
+    for (const subject in schema) {
+        if (typeof schema[subject] !== 'object' || schema[subject] === null || Array.isArray(schema[subject])) {
+            return { valid: false, error: `La asignatura "${subject}" debe contener un objeto de temas` };
+        }
+        
+        for (const theme in schema[subject]) {
+            if (!Array.isArray(schema[subject][theme])) {
+                return { valid: false, error: `El tema "${theme}" debe ser un array de preguntas` };
+            }
+            
+            for (const question of schema[subject][theme]) {
+                if (typeof question !== 'object' || question === null) {
+                    return { valid: false, error: 'Cada pregunta debe ser un objeto' };
+                }
+                
+                if (!question.hasOwnProperty('name') || typeof question.name !== 'string') {
+                    return { valid: false, error: 'Cada pregunta debe tener una propiedad "name" de tipo string' };
+                }
+                
+                if (!question.hasOwnProperty('type') || typeof question.type !== 'string') {
+                    return { valid: false, error: 'Cada pregunta debe tener una propiedad "type" de tipo string' };
+                }
+                
+                // Validar según el tipo
+                if (question.type === 'choice' || question.type === 'multichoice') {
+                    if (!Array.isArray(question.answers)) {
+                        return { valid: false, error: `Pregunta "${question.name}" debe tener un array "answers"` };
+                    }
+                } else if (question.type === 'text') {
+                    if (!question.hasOwnProperty('correctText') || typeof question.correctText !== 'string') {
+                        return { valid: false, error: `Pregunta "${question.name}" de tipo text debe tener "correctText"` };
+                    }
+                }
+            }
+        }
+    }
+    
+    return { valid: true };
+}
+
+// Función para comparar si dos preguntas son iguales
+function areQuestionsEqual(q1, q2) {
+    // Comparar por el texto de la pregunta normalizado
+    const normalizedQ1 = decodeUnicode(q1.name.trim().toLowerCase());
+    const normalizedQ2 = decodeUnicode(q2.name.trim().toLowerCase());
+    return normalizedQ1 === normalizedQ2;
+}
+
+// Función principal para procesar y unificar schemas
+async function processAndMergeSchemas() {
+    const fileInput = document.getElementById('schemaFiles');
+    const files = fileInput.files;
+    
+    if (files.length === 0) {
+        updateMergeStatus('No se han seleccionado archivos', 'warning');
+        return;
+    }
+    
+    // Deshabilitar botón mientras se procesa
+    document.getElementById('processMergeBtn').disabled = true;
+    document.getElementById('processMergeBtn').innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Procesando...';
+    
+    try {
+        const schemas = [];
+        const errors = [];
+        
+        // Leer todos los archivos
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            try {
+                const text = await file.text();
+                const schema = JSON.parse(text);
+                
+                // Validar formato
+                const validation = validateSchemaFormat(schema);
+                if (!validation.valid) {
+                    errors.push(`${file.name}: ${validation.error}`);
+                    continue;
+                }
+                
+                schemas.push({ filename: file.name, data: schema });
+            } catch (error) {
+                errors.push(`${file.name}: Error al parsear JSON - ${error.message}`);
+            }
+        }
+        
+        // Si hay errores, mostrarlos
+        if (errors.length > 0) {
+            updateMergeStatus('Errores encontrados:\n' + errors.join('\n'), 'danger');
+            return;
+        }
+        
+        // Si no hay schemas válidos
+        if (schemas.length === 0) {
+            updateMergeStatus('No se encontraron schemas válidos para unificar', 'warning');
+            return;
+        }
+        
+        // Unificar los schemas
+        const mergedSchema = {};
+        let totalQuestions = 0;
+        let duplicatesFound = 0;
+        const stats = {
+            byFile: {},
+            bySubject: {}
+        };
+        
+        // Inicializar estadísticas por archivo
+        schemas.forEach(s => {
+            stats.byFile[s.filename] = { added: 0, duplicates: 0 };
+        });
+        
+        // Procesar cada schema
+        schemas.forEach(({ filename, data }) => {
+            for (const subject in data) {
+                if (!mergedSchema[subject]) {
+                    mergedSchema[subject] = {};
+                }
+                
+                if (!stats.bySubject[subject]) {
+                    stats.bySubject[subject] = { added: 0, duplicates: 0 };
+                }
+                
+                for (const theme in data[subject]) {
+                    if (!mergedSchema[subject][theme]) {
+                        mergedSchema[subject][theme] = [];
+                    }
+                    
+                    // Procesar cada pregunta
+                    data[subject][theme].forEach(question => {
+                        // Verificar si la pregunta ya existe
+                        const isDuplicate = mergedSchema[subject][theme].some(existingQ => 
+                            areQuestionsEqual(existingQ, question)
+                        );
+                        
+                        if (!isDuplicate) {
+                            mergedSchema[subject][theme].push(question);
+                            totalQuestions++;
+                            stats.byFile[filename].added++;
+                            stats.bySubject[subject].added++;
+                        } else {
+                            duplicatesFound++;
+                            stats.byFile[filename].duplicates++;
+                            stats.bySubject[subject].duplicates++;
+                        }
+                    });
+                }
+            }
+        });
+        
+        // Mostrar resumen
+        let summaryHTML = `
+            <div class="alert alert-success">
+                <h6 class="alert-heading">Unificación completada</h6>
+                <p class="mb-0">Total de preguntas: <strong>${totalQuestions}</strong></p>
+                <p class="mb-0">Duplicados encontrados: <strong>${duplicatesFound}</strong></p>
+            </div>
+            
+            <h6 class="mt-3">Resumen por archivo:</h6>
+            <ul class="list-group mb-3">
+        `;
+        
+        for (const filename in stats.byFile) {
+            const { added, duplicates } = stats.byFile[filename];
+            summaryHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${filename}
+                    <span>
+                        <span class="badge bg-success rounded-pill">${added} añadidas</span>
+                        ${duplicates > 0 ? `<span class="badge bg-warning rounded-pill">${duplicates} duplicadas</span>` : ''}
+                    </span>
+                </li>
+            `;
+        }
+        
+        summaryHTML += `
+            </ul>
+            <h6 class="mt-3">Resumen por asignatura:</h6>
+            <ul class="list-group">
+        `;
+        
+        for (const subject in stats.bySubject) {
+            const { added, duplicates } = stats.bySubject[subject];
+            summaryHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${decodeUnicode(subject)}
+                    <span>
+                        <span class="badge bg-primary rounded-pill">${added} preguntas</span>
+                        ${duplicates > 0 ? `<span class="badge bg-secondary rounded-pill">${duplicates} duplicadas</span>` : ''}
+                    </span>
+                </li>
+            `;
+        }
+        
+        summaryHTML += '</ul>';
+        
+        document.getElementById('mergeSummary').innerHTML = summaryHTML;
+        document.getElementById('mergeResults').classList.remove('d-none');
+        
+        // Generar y descargar el archivo unificado
+        const dataStr = JSON.stringify(mergedSchema, null, 2);
+        const blob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'schema_unificado.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        updateMergeStatus('Archivo unificado descargado exitosamente como "schema_unificado.json"', 'success');
+        
+    } catch (error) {
+        console.error('Error unificando schemas:', error);
+        updateMergeStatus(`Error al unificar: ${error.message}`, 'danger');
+    } finally {
+        // Restaurar botón
+        document.getElementById('processMergeBtn').disabled = false;
+        document.getElementById('processMergeBtn').innerHTML = '<i class="fas fa-cogs me-2"></i>Procesar y Unificar';
+    }
+}
+
 // Guardar en el schema
-document.getElementById('saveBtn').addEventListener('click', () => {
+document.getElementById('saveBtn').addEventListener('click', async () => {
+    console.log('Botón de guardar presionado'); // Debug
+    
     const selectedSubject = document.getElementById('subjectSelect').value;
     const selectedTopic = document.getElementById('topicSelect').value;
+    
+    console.log('Asignatura seleccionada:', selectedSubject); // Debug
+    console.log('Tema seleccionado:', selectedTopic); // Debug
+    console.log('Preguntas extraídas:', scrapedQuestions.length); // Debug
     
     if (!selectedSubject) {
         showAlert('Por favor, selecciona una asignatura.', 'warning');

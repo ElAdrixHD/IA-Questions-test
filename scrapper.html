@@ -91,11 +91,55 @@
                     </button>
                 </div>
                 
+                <!-- Botón para unificar schemas -->
+                <div class="d-grid gap-2 mb-4 col-lg-6 mx-auto">
+                    <button id="mergeBtn" class="btn btn-warning">
+                        <i class="fas fa-compress-alt me-2"></i>Unificar Schemas JSON
+                    </button>
+                </div>
+                
                 <!-- Botón para volver -->
                 <div class="d-grid gap-2 col-lg-6 mx-auto">
                     <a href="index.html" class="btn btn-outline-secondary">
                         <i class="fas fa-arrow-left me-2"></i>Volver al Generador de Tests
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para unificar schemas -->
+    <div class="modal fade" id="mergeModal" tabindex="-1" aria-labelledby="mergeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mergeModalLabel">
+                        <i class="fas fa-compress-alt me-2"></i>Unificar Schemas JSON
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="schemaFiles" class="form-label fw-bold">Selecciona archivos schema.json</label>
+                        <input type="file" class="form-control" id="schemaFiles" multiple accept=".json">
+                        <div class="form-text">Puedes seleccionar múltiples archivos JSON para unificar</div>
+                    </div>
+                    
+                    <div id="mergeStatus" class="alert alert-info d-none">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <span id="mergeStatusText"></span>
+                    </div>
+                    
+                    <div id="mergeResults" class="d-none">
+                        <h6 class="mb-3">Resumen de la unificación:</h6>
+                        <div id="mergeSummary"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="processMergeBtn" disabled>
+                        <i class="fas fa-cogs me-2"></i>Procesar y Unificar
+                    </button>
                 </div>
             </div>
         </div>
