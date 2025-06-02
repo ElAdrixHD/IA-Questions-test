@@ -21,15 +21,15 @@ function showAlert(message, type = 'danger') {
     `;
     
     // Insertar alerta antes del área de procesamiento
-    const htmlInput = document.getElementById('htmlInput');
-    htmlInput.parentNode.parentNode.insertBefore(alertDiv, htmlInput.parentNode);
+    const saveBtn = document.getElementById('saveBtn');
+    saveBtn.parentNode.parentNode.insertBefore(alertDiv, saveBtn.parentNode);
     
     // Auto-eliminar después de 5 segundos
     setTimeout(() => {
         if (alertDiv && alertDiv.parentNode) {
             alertDiv.parentNode.removeChild(alertDiv);
         }
-    }, 5000);
+    }, 20000);
 }
 
 // Función para controlar el estado de procesamiento en la UI
@@ -823,9 +823,15 @@ async function processAndMergeSchemas() {
 }
 
 // Guardar en el schema
-document.getElementById('saveBtn').addEventListener('click', () => {
+document.getElementById('saveBtn').addEventListener('click', async () => {
+    console.log('Botón de guardar presionado'); // Debug
+    
     const selectedSubject = document.getElementById('subjectSelect').value;
     const selectedTopic = document.getElementById('topicSelect').value;
+    
+    console.log('Asignatura seleccionada:', selectedSubject); // Debug
+    console.log('Tema seleccionado:', selectedTopic); // Debug
+    console.log('Preguntas extraídas:', scrapedQuestions.length); // Debug
     
     if (!selectedSubject) {
         showAlert('Por favor, selecciona una asignatura.', 'warning');
