@@ -24118,6 +24118,100 @@
             "correct": true
           }
         ]
+      },
+      {
+        "name": "Un procesamiento distribuido implica:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Distintos procesos para un mismo trabajo ejecutándose dentro del mismo procesador.",
+            "correct": false
+          },
+          {
+            "name": "Procesamiento transaccional.",
+            "correct": false
+          },
+          {
+            "name": "Procesamiento para analítica.",
+            "correct": false
+          },
+          {
+            "name": "Distintos procesos para un mismo trabajo ejecutándose en distintas máquinas.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "La sabiduría se obtiene del conocimiento del mismo modo que los datos se obtienen de la información. ¿Verdadero o falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "De entre las 5 Vs que definen el reto de Big Data, la V de valor tiene que ver con:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "El alto precio que hay que pagar por los datos.",
+            "correct": false
+          },
+          {
+            "name": "La valentía que implica el acometer este tipo de proyectos.",
+            "correct": false
+          },
+          {
+            "name": "El valor que se puede obtener revendiendo datos a terceros.",
+            "correct": false
+          },
+          {
+            "name": "Cómo de útiles son los datos para la institución, empresa o persona que los usa.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Un dataset no debería contener ficheros de texto plano. ¿Verdadero o falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes no es una de las ventajas clave que pueden conseguirse mediante el uso de clusters de máquinas:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Alto rendimiento.",
+            "correct": false
+          },
+          {
+            "name": "Alta disponibilidad.",
+            "correct": false
+          },
+          {
+            "name": "Menor consumo energético.",
+            "correct": true
+          },
+          {
+            "name": "Escalabilidad.",
+            "correct": false
+          }
+        ]
       }
     ],
     "Almacenamiento de Datos": [
@@ -24457,6 +24551,328 @@
           },
           {
             "name": "Ni nodos ni relaciones pueden tener propiedades.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Un sistema de ficheros es:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Cualquier lector de CD o de DVD.",
+            "correct": false
+          },
+          {
+            "name": "Una utilidad que permite comprimir ficheros.",
+            "correct": false
+          },
+          {
+            "name": "La infraestructura necesaria para poder almacenar y organizar datos en unidades de almacenamiento.",
+            "correct": true
+          },
+          {
+            "name": "La infraestructura necesaria para poder almacenar documentos.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Cuando todos los nodos de un sistema de almacenamiento distribuido en memoria ya tienen instalada la máxima RAM posible y queremos ampliar más el almacenamiento:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No se puede ampliar.",
+            "correct": false
+          },
+          {
+            "name": "Es independiente de la RAM, porque todo se está guardando en disco.",
+            "correct": false
+          },
+          {
+            "name": "Añadimos más discos.",
+            "correct": false
+          },
+          {
+            "name": "Añadimos más nodos al clúster.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "HDFS está optimizado para trabajar con una gran cantidad de ficheros de reducido tamaño. ¿Verdadero o falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": false
+          },
+          {
+            "name": "Falso",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En bases de datos distribuidas, replicación consiste en:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Almacenar copias de cada dato en todos los nodos del clúster.",
+            "correct": false
+          },
+          {
+            "name": "Almacenar copias de un mismo conjunto de datos en 2 nodos del clúster.",
+            "correct": false
+          },
+          {
+            "name": "Almacenar copias de un mismo conjunto de datos en varios nodos del clúster.",
+            "correct": true
+          },
+          {
+            "name": "Que cada nodo contenga una copia completa de la base de datos.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Si queremos poder usar la librería Snakebite en Python añadiremos la siguiente línea al principio de nuestros scripts:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "import Snake",
+            "correct": false
+          },
+          {
+            "name": "from snake import Snake",
+            "correct": false
+          },
+          {
+            "name": "from snakebite.client import Client",
+            "correct": true
+          },
+          {
+            "name": "from Client import Snakebite",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes operaciones no se puede realizar en bases de datos documentales:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Selección por el valor de un atributo o campo.",
+            "correct": false
+          },
+          {
+            "name": "JOIN.",
+            "correct": true
+          },
+          {
+            "name": "Acceso a través de una clave.",
+            "correct": false
+          },
+          {
+            "name": "Actualización de un dato.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes no es un tipo de fuente típico en la fase de extracción del proceso ETL:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Logs de servidores web.",
+            "correct": false
+          },
+          {
+            "name": "Cuadros de mando de inteligencia de negocio.",
+            "correct": true
+          },
+          {
+            "name": "Bases de datos relacionales.",
+            "correct": false
+          },
+          {
+            "name": "Ficheros en diversos formatos.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "El Gobierno de Datos incluye:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Planificación, ejecución y documentación.",
+            "correct": false
+          },
+          {
+            "name": "Planficiación, implementación y documentación.",
+            "correct": false
+          },
+          {
+            "name": "Planificación, ejecución y seguimiento.",
+            "correct": true
+          },
+          {
+            "name": "Ejecución, monitorización, documentación y seguimiento.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Según el RGPD, los responsables del tratamiento de datos están obligados a:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Garantizar su cumplimiento y estar en condiciones de demostrarlo.",
+            "correct": true
+          },
+          {
+            "name": "Garantizar su cumplimiento y remitir informes periódicos a las autoridades competentes.",
+            "correct": false
+          },
+          {
+            "name": "Garantizar su cumplimiento.",
+            "correct": false
+          },
+          {
+            "name": "Garantizar su cumplimiento por parte de toda la plantilla y de aquellos terceros con los que se subcontrate el tratamiento.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Según el RGPD:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Los interesados pierden los derechos de acceso, rectificación, cancelación y oposición.",
+            "correct": false
+          },
+          {
+            "name": "Los interesados mantienen los derechos de acceso, rectificación, cancelación y oposición, pero ahora en una versión más completa.",
+            "correct": true
+          },
+          {
+            "name": "Los interesados mantienen los derechos de acceso, rectificación, cancelación y oposición tal cual los tenían con anteriores leyes.",
+            "correct": false
+          },
+          {
+            "name": "Los interesados mantienen los derechos de acceso, rectificación, cancelación y oposición, pero ahora en una versión más resumida.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "El Chief Data Officer (o CDO):",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Tiene como cometido resolver problemas tecnológicos.",
+            "correct": false
+          },
+          {
+            "name": "Es responsable del modelo de datos.",
+            "correct": true
+          },
+          {
+            "name": "Es el responsable de un departamentos que usa/produce datos.",
+            "correct": false
+          },
+          {
+            "name": "No juega ningún papel en relación a Gobierno de Datos.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "La LOPD-GDD se escribió:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Para sustituir al RGPD al quedar éste desfasado.",
+            "correct": false
+          },
+          {
+            "name": "Antes que el RGPD.",
+            "correct": false
+          },
+          {
+            "name": "Es una traducción del RGPD al castellano.",
+            "correct": false
+          },
+          {
+            "name": "Para estar acorde con el RGPD.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "La integración de datos:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Permite realizar replicaciones de los datos de modo eficiente.",
+            "correct": false
+          },
+          {
+            "name": "Busca obtener una alta redundancia y disponibilidad.",
+            "correct": false
+          },
+          {
+            "name": "Busca entregar una visión unificada de los datos a aquellos usuarios o procesos que vayan a utilizarlos.",
+            "correct": true
+          },
+          {
+            "name": "Se realiza para minimizar la latencia del sistema.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "La diferencia entre los conceptos ETL e integración de datos es que:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No hay diferencias.",
+            "correct": false
+          },
+          {
+            "name": "En ETL se produce una copia de los datos y en integración de datos idealmente siguen residiendo en las fuentes originales.",
+            "correct": true
+          },
+          {
+            "name": "La integración de datos se produce a continuación del proceso de ETL.",
+            "correct": false
+          },
+          {
+            "name": "La integración de datos se produce previamente al proceso de ETL.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "El Gobierno de Datos:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Es la gestión de los datos.",
+            "correct": false
+          },
+          {
+            "name": "Es el ejercício de control y autoridad y comunicación sobre la gestión realizada de los datos.",
+            "correct": true
+          },
+          {
+            "name": "Se realiza para facilitar la monitorización de los nodos del clúster.",
+            "correct": false
+          },
+          {
+            "name": "Es una de las actividades incluidas dentro de la gestión de datos.",
             "correct": false
           }
         ]
@@ -24810,6 +25226,72 @@
           },
           {
             "name": "Es tolerante a fallos.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes no es un tipo de fuente típico en la fase de extracción del proceso ETL:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Logs de servidores web.",
+            "correct": false
+          },
+          {
+            "name": "Cuadros de mando de inteligencia de negocio.",
+            "correct": true
+          },
+          {
+            "name": "Bases de datos relacionales.",
+            "correct": false
+          },
+          {
+            "name": "Ficheros en diversos formatos.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "La LOPD-GDD se escribió:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Para sustituir al RGPD al quedar éste desfasado.",
+            "correct": false
+          },
+          {
+            "name": "Antes que el RGPD.",
+            "correct": false
+          },
+          {
+            "name": "Es una traducción del RGPD al castellano.",
+            "correct": false
+          },
+          {
+            "name": "Para estar acorde con el RGPD.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "La integración de datos:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Permite realizar replicaciones de los datos de modo eficiente.",
+            "correct": false
+          },
+          {
+            "name": "Busca obtener una alta redundancia y disponibilidad.",
+            "correct": false
+          },
+          {
+            "name": "Busca entregar una visión unificada de los datos a aquellos usuarios o procesos que vayan a utilizarlos.",
+            "correct": true
+          },
+          {
+            "name": "Se realiza para minimizar la latencia del sistema.",
             "correct": false
           }
         ]
@@ -25183,6 +25665,160 @@
             "correct": false
           }
         ]
+      },
+      {
+        "name": "La Analítica de Datos:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Es un concepto amplio que incluye dentro al Análisis de Datos.",
+            "correct": true
+          },
+          {
+            "name": "Está incluída dentro del Análisis de Datos.",
+            "correct": false
+          },
+          {
+            "name": "Es un concepto equivalente al Análisis de Datos.",
+            "correct": false
+          },
+          {
+            "name": "Es equivalente al Gobierno de Datos.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Los DataFrame de Pandas:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Son el equivalente a un array bidimensional al que podemos asociar etiquetas tanto para columnas como para filas.",
+            "correct": true
+          },
+          {
+            "name": "Son el equivalente a una lista a la que además se pueden asociar etiquetas.",
+            "correct": false
+          },
+          {
+            "name": "Son multidimensionales.",
+            "correct": false
+          },
+          {
+            "name": "Son monodimensioneles.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Un diagrama de flujo:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Debe tener un único nodo de inicio y al menos uno de final.",
+            "correct": true
+          },
+          {
+            "name": "Debe tener tantos nodos de inicio como de final.",
+            "correct": false
+          },
+          {
+            "name": "Puede tener más de un nodo de inicio.",
+            "correct": false
+          },
+          {
+            "name": "Sólo puede tener un nodo de final.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En Python:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No necesitamos declarar el tipo de datos de las variables.",
+            "correct": true
+          },
+          {
+            "name": "Debemos declarar el tipo de datos de las variables antes de utilizarlas asignarles valores.",
+            "correct": false
+          },
+          {
+            "name": "Asignamos valores a variables mediante <-.",
+            "correct": false
+          },
+          {
+            "name": "Mostramos valores mediante la función eco.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Los pasos de SEMMA son:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Sample, Explore, Modify, Model, Access.",
+            "correct": true
+          },
+          {
+            "name": "Sample, Explote, Modify, Model, Access.",
+            "correct": false
+          },
+          {
+            "name": "Sample, Explore, Measure, Model, Access.",
+            "correct": false
+          },
+          {
+            "name": "Sample, Explore, Model, Modify, Access.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En un DataFrame de Pandas:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Podemos añadir y eliminar columnas una vez está creado.",
+            "correct": true
+          },
+          {
+            "name": "No podemos añadir ni eliminar columnas una vez está creado.",
+            "correct": false
+          },
+          {
+            "name": "Podemos añadir columnas pero no eliminarlas una vez está creado.",
+            "correct": false
+          },
+          {
+            "name": "No podemos añadir columnas pero sí eliminarlas una vez está creado.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "R es:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Un lenguaje de programación interpretado de código abierto creado específicamente para facilitar el análisis de datos.",
+            "correct": true
+          },
+          {
+            "name": "Un lenguaje de programación compilado de código abierto creado específicamente para facilitar el análisis de datos.",
+            "correct": false
+          },
+          {
+            "name": "Un lenguaje de programación de alto nivel, interpretado y propósito general.",
+            "correct": false
+          },
+          {
+            "name": "Un lenguaje de programación interpretado de bajo nivel creado específicamente para facilitar el análisis de datos.",
+            "correct": false
+          }
+        ]
       }
     ],
     "BI, visualizaci\\u00f3n de datos y cuadros de mando": [
@@ -25413,6 +26049,248 @@
           {
             "name": "Las dimensiones del negocio sobre las cuales se puede desear tomar porciones.",
             "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Gracias a la Inteligencia de Negocio:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Podemos enfocarnos más en el día a día sin preocuparnos por el futuro de la empresa.",
+            "correct": false
+          },
+          {
+            "name": "Ya no se realizan informes sino únicamente cuadros de mando.",
+            "correct": false
+          },
+          {
+            "name": "Dejan de hacerse informes de modo manual.",
+            "correct": true
+          },
+          {
+            "name": "Siguen haciendose los informes manuales de forma manual pero ahora más rápido.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Los mapas de calor:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Únicamente tienen sentido si se dibujan sobre un mapa terráqueo.",
+            "correct": false
+          },
+          {
+            "name": "Únicamente reflejan temperatura medida por estaciones meteorológicas.",
+            "correct": false
+          },
+          {
+            "name": "Son análogos a los histogramas.",
+            "correct": false
+          },
+          {
+            "name": "Tienen utilidad cuando los datos de entrada tienen 3 dimensiones.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Que una métrica sea accionable significa:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Que se sepa a ciencia cierta de dónde proviene.",
+            "correct": false
+          },
+          {
+            "name": "Que implique acciones por parte de los clientes.",
+            "correct": false
+          },
+          {
+            "name": "Que provenga de acciones realizadas en la empresa.",
+            "correct": false
+          },
+          {
+            "name": "Que sepamos cómo actuar si queremos modificar su tendencia.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Cuando en un cuadro de mando de Power BI hacemos clic sobre una porción en un gráfico circular:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No ocurre nada.",
+            "correct": false
+          },
+          {
+            "name": "Toda la información se filtra de modo que se excluye la referente al significado de la porción seleccionada.",
+            "correct": false
+          },
+          {
+            "name": "Cambia automáticamente la configuración de colores del cuadro de mando.",
+            "correct": false
+          },
+          {
+            "name": "Toda la información se filtra de modo que sólo vemos la referente al significado de la porción seleccionada.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Los cuadros de mando, de modo general:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Ocupan más espacio que los informes.",
+            "correct": false
+          },
+          {
+            "name": "Trabajan con mayor cantidad de datos históricos.",
+            "correct": false
+          },
+          {
+            "name": "Están más enfocados a instantánea que a análisis en tiempo real.",
+            "correct": false
+          },
+          {
+            "name": "Son más interactivos que los informes.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes no es una de las métricas comunes a emplear cuando se crea un cuadro de mando:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Facturación.",
+            "correct": false
+          },
+          {
+            "name": "Tallas de calzado.",
+            "correct": true
+          },
+          {
+            "name": "Beneficios.",
+            "correct": false
+          },
+          {
+            "name": "Número de llamadas al soporte.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Uno de los siguientes no es uno de los factores típicamente a considerar antes de crear un cuadro de mando:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Con qué tipo de datos se está trabajando.",
+            "correct": false
+          },
+          {
+            "name": "Qué combinación de colores es la más apropiada.",
+            "correct": true
+          },
+          {
+            "name": "Cómo se accederá al cuadro de mandos.",
+            "correct": false
+          },
+          {
+            "name": "Cómo de experimentados son los usuarios.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Cuando una empresa tiene un sistema con datamarts independientes:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Significa que se alimentan desde un datawarehouse corporativo.",
+            "correct": false
+          },
+          {
+            "name": "No es posible, ya que los datamarts son dependientes por definición.",
+            "correct": false
+          },
+          {
+            "name": "Estos datamarts están interconectados entre sí.",
+            "correct": false
+          },
+          {
+            "name": "Significa que no se alimentan desde un datawarehouse corporativo.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes es una de las desventajas típicamente asociadas a las herramientas de Inteligencia de Negocio en la nube:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Su puesta en marcha supone un mayor riesgo económico, ya que se paga por uso.",
+            "correct": false
+          },
+          {
+            "name": "Por defecto sólo muestran información contenida en el ERP.",
+            "correct": false
+          },
+          {
+            "name": "Son soluciones caras, tanto de adquirir como de poner en marcha.",
+            "correct": false
+          },
+          {
+            "name": "Algunas soluciones son demasiado simples.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Al crear un cuadro de mando:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No importa el espacio empleado.",
+            "correct": false
+          },
+          {
+            "name": "Ocuparemos varias páginas, ya que la clave de los cuadros de mandos es mostrar cuanta más información mejor.",
+            "correct": false
+          },
+          {
+            "name": "Ocuparemos poco espacio para poder comprobarlo de un vistazo.",
+            "correct": true
+          },
+          {
+            "name": "El usuario final no interviene a la hora de establecer requisitos.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Que una herramienta de Inteligencia de Negocio tenga una funcionaliad de planificación de informes significa:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Que la herramienta permita programar qué día se realizará cada informe.",
+            "correct": false
+          },
+          {
+            "name": "Que la herramienta incluya un calendario en el cual planificar en qué momentos será emplada por cada usuario.",
+            "correct": false
+          },
+          {
+            "name": "Que la herramienta permita prever el número de informes que será necesario generar.",
+            "correct": false
+          },
+          {
+            "name": "Que la herramienta permita definir informes que serán enviados a determinados usuarios con determinada periodicidad.",
+            "correct": true
           }
         ]
       }
