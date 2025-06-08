@@ -483,6 +483,52 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Scroll a los resultados
         quizResultsContainer.scrollIntoView({ behavior: 'smooth' });
+
+        // Animación de confeti si la nota es 8 o superior
+        if (score >= 8 && typeof confetti === 'function') {
+            confetti({
+                particleCount: 400,
+                spread: 90,
+                origin: { y: 0.5 },
+                zIndex: 9999
+            });
+        }
+        // Animación de "suspenso" si la nota es menor de 5
+        else if (score < 5) {
+            // Crear un contenedor para la lluvia de emojis
+            const emojiRain = document.createElement('div');
+            emojiRain.id = 'emoji-rain';
+            emojiRain.style.position = 'fixed';
+            emojiRain.style.top = '0';
+            emojiRain.style.left = '0';
+            emojiRain.style.width = '100vw';
+            emojiRain.style.height = '100vh';
+            emojiRain.style.pointerEvents = 'none';
+            emojiRain.style.zIndex = '9999';
+            document.body.appendChild(emojiRain);
+
+            // Crear múltiples emojis que caen
+            const emojiCount = 30;
+            for (let i = 0; i < emojiCount; i++) {
+                const emoji = document.createElement('span');
+                emoji.textContent = '😢';
+                emoji.style.position = 'absolute';
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.top = '-3em';
+                emoji.style.fontSize = (2 + Math.random() * 2) + 'rem';
+                emoji.style.opacity = 0.85;
+                emoji.style.transition = 'transform 2.5s linear, opacity 2.5s linear';
+                emojiRain.appendChild(emoji);
+                setTimeout(() => {
+                    emoji.style.transform = `translateY(${90 + Math.random() * 10}vh)`;
+                    emoji.style.opacity = 0.2;
+                }, 50 + Math.random() * 500);
+            }
+            // Eliminar la animación tras unos segundos
+            setTimeout(() => {
+                if (emojiRain.parentNode) emojiRain.parentNode.removeChild(emojiRain);
+            }, 3000);
+        }
     }
 
     // Función para mezclar aleatoriamente un array
