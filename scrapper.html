@@ -17,7 +17,12 @@
 <body class="bg-light">
     <div class="container py-4">
         <!-- Header con logo para todas las pantallas -->
-        <header class="text-center mb-4">
+        <header class="text-center mb-4 position-relative">
+            <div class="position-absolute top-0 end-0 me-3 mt-2" style="z-index:10;">
+                <button id="darkModeToggle" class="btn btn-outline-secondary d-flex align-items-center" title="Cambiar modo claro/oscuro">
+                    <i id="darkModeIcon" class="fas fa-moon"></i>
+                </button>
+            </div>
             <h1 class="display-5 fw-bold text-primary">
                 <i class="fas fa-file-import me-2"></i>Extractor de Preguntas
             </h1>
