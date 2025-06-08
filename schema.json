@@ -13823,6 +13823,94 @@
             "correct": false
           }
         ]
+      },
+      {
+        "name": "¿En qué dos categorías se dividen los problemas de Aprendizaje Automático Supervisado?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Fuerte y débil.",
+            "correct": false
+          },
+          {
+            "name": "Rápido y lento.",
+            "correct": false
+          },
+          {
+            "name": "Regresión y clasificación.",
+            "correct": true
+          },
+          {
+            "name": "Regresión y clustering.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "El término Machine Learning lo traducimos a Español como:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Aprendizaje Profundo.",
+            "correct": false
+          },
+          {
+            "name": "Aprendizaje Autónomo.",
+            "correct": false
+          },
+          {
+            "name": "Aprendizaje Automático.",
+            "correct": false
+          },
+          {
+            "name": "Las dos últimas son correctas.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿En qué materias se basa el Aprendizaje Automático (Machine Learning) acutal?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Estadística, Matemáticas, Física y Química.",
+            "correct": false
+          },
+          {
+            "name": "Reconocimiento de patrones, Física cuántica, Procesamiento de datos y Estadística aplicada.",
+            "correct": false
+          },
+          {
+            "name": "Razonamiento probabilístico, Estadística, Recuperación de datos y Reconocimiento de patrones",
+            "correct": true
+          },
+          {
+            "name": "Estudiar el reconocimiento de patrones y aprendizaje por parte de las computadoras.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Cuál es el objetivo de las Asociaciones (en el contexto del Aprendizaje Automático No Supervisado)?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Reducir el coste del entrenamiento de la Inteligencia Artificial.",
+            "correct": false
+          },
+          {
+            "name": "Detectar qué grupos o clusters son los más poblados.",
+            "correct": false
+          },
+          {
+            "name": "Detectar instancias que se diferencian de las demás.",
+            "correct": false
+          },
+          {
+            "name": "Encontrar relaciones entre los diferentes valores que toman los campos de una instancia.",
+            "correct": true
+          }
+        ]
       }
     ],
     "\\u00c1reas de estudio y desarrollo de la Inteligencia Artificial": [
@@ -14202,6 +14290,56 @@
         "type": "text",
         "correctText": "V",
         "answers": []
+      },
+      {
+        "name": "El modelo GPT3 también es capaz de escribir programas en lenguaje de programación. ¿Verdadero o Falso?",
+        "type": "text",
+        "answers": [],
+        "correctText": "Respuesta no especificada"
+      },
+      {
+        "name": "¿En qué consiste la tokenización en los modelos de NLP?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "En memorizar sinónimos.",
+            "correct": false
+          },
+          {
+            "name": "En separar palabras del texto en entidades llamadas tokens.",
+            "correct": true
+          },
+          {
+            "name": "En recrear las palabras más frecuentes.",
+            "correct": false
+          },
+          {
+            "name": "En asignar un valor monetario al gasto computacional.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿En qué año se publicó el modelo de Deep Dream?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Se creó en 2014, pero fué publicado en 2015.",
+            "correct": true
+          },
+          {
+            "name": "En 2017.",
+            "correct": false
+          },
+          {
+            "name": "En 2019.",
+            "correct": false
+          },
+          {
+            "name": "En  2021.",
+            "correct": false
+          }
+        ]
       }
     ]
   },
@@ -25667,6 +25805,116 @@
         ]
       },
       {
+        "name": "Uno de los siguientes no es uno de los pasos de CRISP-DM:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Modificación de los datos.",
+            "correct": true
+          },
+          {
+            "name": "Comprensión del negocio.",
+            "correct": false
+          },
+          {
+            "name": "Comprensión de los datos.",
+            "correct": false
+          },
+          {
+            "name": "Modelado.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Los arrays de NumPy:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Son multidimensionales y rectangulares.",
+            "correct": true
+          },
+          {
+            "name": "Son monodimensionales.",
+            "correct": false
+          },
+          {
+            "name": "Son multidimensionales sin necesidad de ser rectangulares.",
+            "correct": false
+          },
+          {
+            "name": "Son bidimensionales.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "En un DataFrame de Pandas:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Podemos añadir y eliminar columnas una vez está creado.",
+            "correct": true
+          },
+          {
+            "name": "No podemos añadir ni eliminar columnas una vez está creado.",
+            "correct": false
+          },
+          {
+            "name": "Podemos añadir columnas pero no eliminarlas una vez está creado.",
+            "correct": false
+          },
+          {
+            "name": "No podemos añadir columnas pero sí eliminarlas una vez está creado.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "El Análisis Diagnóstico:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Intenta determinar la causa de un fenómeno que ha ocurrido o está ocurriendo.",
+            "correct": true
+          },
+          {
+            "name": "Por lo general produce como resultado reportes o cuadros de mando estáticos.",
+            "correct": false
+          },
+          {
+            "name": "No emplea estructuras de datos tipo OLAP.",
+            "correct": false
+          },
+          {
+            "name": "Intenta predecir qué ocurrirá en un futuro.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes no está entre las actividades de la Analítica de Datos:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Política de Datos.",
+            "correct": true
+          },
+          {
+            "name": "Obtención/recolección de los datos desde diversas fuentes.",
+            "correct": false
+          },
+          {
+            "name": "Gobierno de Datos.",
+            "correct": false
+          },
+          {
+            "name": "Análisis de Datos.",
+            "correct": false
+          }
+        ]
+      },
+      {
         "name": "La Analítica de Datos:",
         "type": "choice",
         "answers": [
@@ -25772,28 +26020,6 @@
           },
           {
             "name": "Sample, Explore, Model, Modify, Access.",
-            "correct": false
-          }
-        ]
-      },
-      {
-        "name": "En un DataFrame de Pandas:",
-        "type": "choice",
-        "answers": [
-          {
-            "name": "Podemos añadir y eliminar columnas una vez está creado.",
-            "correct": true
-          },
-          {
-            "name": "No podemos añadir ni eliminar columnas una vez está creado.",
-            "correct": false
-          },
-          {
-            "name": "Podemos añadir columnas pero no eliminarlas una vez está creado.",
-            "correct": false
-          },
-          {
-            "name": "No podemos añadir columnas pero sí eliminarlas una vez está creado.",
             "correct": false
           }
         ]
@@ -26053,23 +26279,23 @@
         ]
       },
       {
-        "name": "Gracias a la Inteligencia de Negocio:",
+        "name": "Cuando hablamos de visualización de datos, los indicadores:",
         "type": "choice",
         "answers": [
           {
-            "name": "Podemos enfocarnos más en el día a día sin preocuparnos por el futuro de la empresa.",
-            "correct": false
-          },
-          {
-            "name": "Ya no se realizan informes sino únicamente cuadros de mando.",
-            "correct": false
-          },
-          {
-            "name": "Dejan de hacerse informes de modo manual.",
+            "name": "Se utilizan para indicar medidas relevantes, en ocasiones dentro de rangos.",
             "correct": true
           },
           {
-            "name": "Siguen haciendose los informes manuales de forma manual pero ahora más rápido.",
+            "name": "Indican valores de beneficio, margen, ventas, compras o cantidad de unidades en almacén.",
+            "correct": false
+          },
+          {
+            "name": "Se utilizan para indicar en qué rangos deben ir los valores que vamos a mostrar.",
+            "correct": false
+          },
+          {
+            "name": "No existe el concepto indicador en relación a visualización de datos.",
             "correct": false
           }
         ]
@@ -26119,28 +26345,6 @@
         ]
       },
       {
-        "name": "Cuando en un cuadro de mando de Power BI hacemos clic sobre una porción en un gráfico circular:",
-        "type": "choice",
-        "answers": [
-          {
-            "name": "No ocurre nada.",
-            "correct": false
-          },
-          {
-            "name": "Toda la información se filtra de modo que se excluye la referente al significado de la porción seleccionada.",
-            "correct": false
-          },
-          {
-            "name": "Cambia automáticamente la configuración de colores del cuadro de mando.",
-            "correct": false
-          },
-          {
-            "name": "Toda la información se filtra de modo que sólo vemos la referente al significado de la porción seleccionada.",
-            "correct": true
-          }
-        ]
-      },
-      {
         "name": "Los cuadros de mando, de modo general:",
         "type": "choice",
         "answers": [
@@ -26163,23 +26367,23 @@
         ]
       },
       {
-        "name": "Una de las siguientes no es una de las métricas comunes a emplear cuando se crea un cuadro de mando:",
+        "name": "Uno de los siguientes no es uno de los problemas por los que se origina la Inteligencia de Negocio:",
         "type": "choice",
         "answers": [
           {
-            "name": "Facturación.",
-            "correct": false
-          },
-          {
-            "name": "Tallas de calzado.",
+            "name": "La información en las empresas siempre se ha encontrado demasiado centralizada.",
             "correct": true
           },
           {
-            "name": "Beneficios.",
+            "name": "Si quienes toman las decisiones tienen que esperar al informe, éste suele llegar tarde y eso aumenta el riesgo para la empresa.",
             "correct": false
           },
           {
-            "name": "Número de llamadas al soporte.",
+            "name": "Al estar la información diseminada, no hay una única versión de la verdad a la cual atenerse.",
+            "correct": false
+          },
+          {
+            "name": "La información dentro de la empresa suele estar diseminada por distintos sistemas y/u hojas de cálculo.",
             "correct": false
           }
         ]
@@ -26273,6 +26477,28 @@
         ]
       },
       {
+        "name": "Gracias a la Inteligencia de Negocio:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Podemos enfocarnos más en el día a día sin preocuparnos por el futuro de la empresa.",
+            "correct": false
+          },
+          {
+            "name": "Ya no se realizan informes sino únicamente cuadros de mando.",
+            "correct": false
+          },
+          {
+            "name": "Dejan de hacerse informes de modo manual.",
+            "correct": true
+          },
+          {
+            "name": "Siguen haciendose los informes manuales de forma manual pero ahora más rápido.",
+            "correct": false
+          }
+        ]
+      },
+      {
         "name": "Que una herramienta de Inteligencia de Negocio tenga una funcionaliad de planificación de informes significa:",
         "type": "choice",
         "answers": [
@@ -26291,6 +26517,50 @@
           {
             "name": "Que la herramienta permita definir informes que serán enviados a determinados usuarios con determinada periodicidad.",
             "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Cuando en un cuadro de mando de Power BI hacemos clic sobre una porción en un gráfico circular:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No ocurre nada.",
+            "correct": false
+          },
+          {
+            "name": "Toda la información se filtra de modo que se excluye la referente al significado de la porción seleccionada.",
+            "correct": false
+          },
+          {
+            "name": "Cambia automáticamente la configuración de colores del cuadro de mando.",
+            "correct": false
+          },
+          {
+            "name": "Toda la información se filtra de modo que sólo vemos la referente al significado de la porción seleccionada.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes no es una de las métricas comunes a emplear cuando se crea un cuadro de mando:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Facturación.",
+            "correct": false
+          },
+          {
+            "name": "Tallas de calzado.",
+            "correct": true
+          },
+          {
+            "name": "Beneficios.",
+            "correct": false
+          },
+          {
+            "name": "Número de llamadas al soporte.",
+            "correct": false
           }
         ]
       }
