@@ -13911,6 +13911,94 @@
             "correct": true
           }
         ]
+      },
+      {
+        "name": "¿Cuál es objetivo del Culstering (en el contexto del Aprendizaje Automático No Supervisado)?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Hacer predicciones.",
+            "correct": false
+          },
+          {
+            "name": "Generar un mapa clasificatorio.",
+            "correct": false
+          },
+          {
+            "name": "Ordenar y limpiar las instancias defectuosas para hacer un posterior entrenamiento supervisado.",
+            "correct": false
+          },
+          {
+            "name": "Generar agrupaciones o clusters buscando las instancias que son similares entre sí.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Se requiere etiquetado previo de las instancias para un modelo de Aprendizaje Automático No Supervisado?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Sí.",
+            "correct": false
+          },
+          {
+            "name": "No.",
+            "correct": true
+          },
+          {
+            "name": "Depende del resultado que estemos buscando.",
+            "correct": false
+          },
+          {
+            "name": "Solo en el caso de emplear una Regresión.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "El Aprendizaje Automático puede ser:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Supervisado o por refuerzo.",
+            "correct": false
+          },
+          {
+            "name": "Supervisado, no supervisado o por refuerzo.",
+            "correct": true
+          },
+          {
+            "name": "Supervisado o no supervisado",
+            "correct": false
+          },
+          {
+            "name": "Solamente por refuerzo",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "El Machine Learning (Aprendizaje Automático) genera un gran interés en toda la sociedad, especialmente desde el año…",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "2000.",
+            "correct": false
+          },
+          {
+            "name": "2009.",
+            "correct": false
+          },
+          {
+            "name": "2016.",
+            "correct": true
+          },
+          {
+            "name": "2022.",
+            "correct": false
+          }
+        ]
       }
     ],
     "\\u00c1reas de estudio y desarrollo de la Inteligencia Artificial": [
@@ -14337,6 +14425,152 @@
           },
           {
             "name": "En  2021.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Se puede respetar la privacidad de las personas mayores que tienen un sistema de vigilancia en su casa?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No. Les toca aguantarse.",
+            "correct": false
+          },
+          {
+            "name": "No, pero solo se ponen cámaras apuntando al techo.",
+            "correct": false
+          },
+          {
+            "name": "Sí, sustituyendo su imagen por una silueta o figura articulada.",
+            "correct": true
+          },
+          {
+            "name": "Sí, haciendo la imagen borrosa.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Con qué tipo de datos se trabaja en los modelos inteligentes de control de robots?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Imágenes.",
+            "correct": false
+          },
+          {
+            "name": "Fragmentos de texto.",
+            "correct": false
+          },
+          {
+            "name": "Datos tabulares.",
+            "correct": false
+          },
+          {
+            "name": "Datos de sensores.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿Qué técnica utiliza DALLE para generar imágenes a partir de una descripción dada?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Dispersion.",
+            "correct": false
+          },
+          {
+            "name": "Clarification.",
+            "correct": false
+          },
+          {
+            "name": "Normalization..",
+            "correct": false
+          },
+          {
+            "name": "Diffusion.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "¿En qué técnica se basa el funcionamiento de GauGAN?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "En la técnica representativa de óleo digital.",
+            "correct": false
+          },
+          {
+            "name": "En la Normalización Espacial Adaptativa.",
+            "correct": true
+          },
+          {
+            "name": "En la difusión lógica binaria.",
+            "correct": false
+          },
+          {
+            "name": "Ninguna de las anteriores.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿Cómo es capaz de no salirse de la carretera un coche autónomo?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Porque los neumáticos detectan si están pisando las rayas.",
+            "correct": false
+          },
+          {
+            "name": "El sistema de visión artificial detecta las líneas de la carretera.",
+            "correct": true
+          },
+          {
+            "name": "Los sensores de proximidad detectan cosas a los lados de la carretera y se mantienen a una cierta distancia.",
+            "correct": false
+          },
+          {
+            "name": "Los coches todavía no son capaces de eso.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "¿De cuántos parámetros es la red de GPT3?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "100.",
+            "correct": false
+          },
+          {
+            "name": "1000.",
+            "correct": false
+          },
+          {
+            "name": "1 millón.",
+            "correct": false
+          },
+          {
+            "name": "175 billones.",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "name": "En la industria agroalimentaria, la visión artificial permite detectar el grado de madurez de un fruto. ¿Verdadero o Falso?",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Verdadero",
+            "correct": true
+          },
+          {
+            "name": "Falso",
             "correct": false
           }
         ]
@@ -26045,6 +26279,68 @@
             "correct": false
           }
         ]
+      },
+      {
+        "name": "Un algoritmo es:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Un conjunto de instrucciones que realizadas en orden permiten solucionar un problema.",
+            "correct": true
+          },
+          {
+            "name": "Cualquier serie de comandos para una computadora.",
+            "correct": false
+          },
+          {
+            "name": "Un conjunto de instrucciones que realizadas en paralelo permiten solucionar un problema.",
+            "correct": false
+          },
+          {
+            "name": "Un conjunto de instrucciones a emplear como base para crear un diagrama de flujo.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Programando en R:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Podemos asignar valores a variables variables usando <-.",
+            "correct": true
+          },
+          {
+            "name": "Podemos asignar valores a variables variables usando ->",
+            "correct": false
+          },
+          {
+            "name": "Debemos declarar el tipo de cada variable antes de utilizarla.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Un algoritmo de tiempo polinomial:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Siempre termina siendo más rápido que uno de tiempo exponencial si el tamaño de la entrada es lo suficientemente grande.",
+            "correct": false
+          },
+          {
+            "name": "Siempre termina siendo más lento que uno de tiempo exponencial si el tamaño de la entrada es lo suficientemente grande.",
+            "correct": false
+          },
+          {
+            "name": "Es aproximadamente igual de rápido uno de tiempo exponencial si el tamaño de la entrada es lo suficientemente grande.",
+            "correct": false
+          },
+          {
+            "name": "Es aquel que en el mejor de los casos permite solucionar determinado problema en un tiempo determinado por un polinomio en función del tamaño de la entrada.",
+            "correct": true
+          }
+        ]
       }
     ],
     "BI, visualizaci\\u00f3n de datos y cuadros de mando": [
@@ -26560,6 +26856,138 @@
           },
           {
             "name": "Número de llamadas al soporte.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Cuando una empresa tiene un datawarehouse:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "No puede haber datamarts porque son excluyentes.",
+            "correct": false
+          },
+          {
+            "name": "Siempre es necesario que además haya varios datamarts.",
+            "correct": false
+          },
+          {
+            "name": "Puede haber o no haber datamarts.",
+            "correct": true
+          },
+          {
+            "name": "Siempre es necesario que además haya un datamart.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Cuando definimos requisitos para Inteligencia de Negocio, los \"Medidas\" son:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Las dimensiones del negocio sobre las cuales se puede desear tomar porciones.",
+            "correct": false
+          },
+          {
+            "name": "Los eventos del negocio acerca de los cuales querremos generar informes o producir cualquier tipo de analítica.",
+            "correct": false
+          },
+          {
+            "name": "Los valores que se quieren analizar o reportar.",
+            "correct": true
+          },
+          {
+            "name": "Las acciones a tomar.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Una de las siguientes no es una característica a considerar típicamente en las herramientas para Inteligencia de Negocio:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Capacidad para crear cuadros de mando.",
+            "correct": false
+          },
+          {
+            "name": "Capacidad para la replicación de datos.",
+            "correct": true
+          },
+          {
+            "name": "Capacidad para el autoservicio de informes.",
+            "correct": false
+          },
+          {
+            "name": "Seguridad.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Un gráfico de barras apiladas:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Sólo puede mostrarse en horizontal.",
+            "correct": false
+          },
+          {
+            "name": "Muestra cada posible valor como una barra independiente.",
+            "correct": false
+          },
+          {
+            "name": "Puede mostrarse en horizontal o en vertical.",
+            "correct": true
+          },
+          {
+            "name": "Sólo puede mostrarse en vertical.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Un gráfico de líneas:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Es equivalente a uno de puntos con en el que cada posible valor de y para la x es conocido gracias a una función.",
+            "correct": false
+          },
+          {
+            "name": "Es similar a uno de puntos pero uniendo los puntos contíguos en cada serie para dar una sensación de continuidad.",
+            "correct": true
+          },
+          {
+            "name": "No guarda ninguna relación con un gráfico de puntos.",
+            "correct": false
+          },
+          {
+            "name": "No existe tal tipo de gráfico.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "name": "Trabajando con Power BI, si queremos relacionar dos campos de distintas tablas:",
+        "type": "choice",
+        "answers": [
+          {
+            "name": "Power BI creará automáticamente la relación si tienen el mismo nombre, y si no lo hacemos manualmente en la vista \"Modelo\".",
+            "correct": true
+          },
+          {
+            "name": "No puede hacerse.",
+            "correct": false
+          },
+          {
+            "name": "Sólo podemos hacerlo poniéndoles el mismo nombre a los campos para que Power BI lo detecte y cree automáticamente la relación.",
+            "correct": false
+          },
+          {
+            "name": "Debe indicarse mediante clave externa en los esquemas de las propias tablas que importamos.",
             "correct": false
           }
         ]

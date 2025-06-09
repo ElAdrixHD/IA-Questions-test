@@ -227,3 +227,177 @@ button[type="submit"],
         word-break: break-word;
     }
 }
+
+.ascii-author {
+    font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-top: -0.5rem;
+    margin-bottom: 0.2rem;
+    letter-spacing: 1px;
+}
+body.dark-mode .ascii-author {
+    color: #00fff7;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #181a1b !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode .card,
+body.dark-mode #quiz-results,
+body.dark-mode #theme-select-container,
+body.dark-mode .dropdown-menu {
+    background-color: #23272b !important;
+    color: #e0e0e0 !important;
+    border-color: #343a40 !important;
+}
+body.dark-mode .card.question {
+    border-left-color: #00fff7 !important;
+    border-left: 4px solid #00fff7 !important;
+}
+body.dark-mode .card.question.correct {
+    background-color: #23422d !important;
+    border-left: 4px solid #43ea7f !important;
+}
+body.dark-mode .card.question.incorrect {
+    background-color: #422323 !important;
+    border-left: 4px solid #ff6f61 !important;
+}
+body.dark-mode .ascii-logo {
+    color: #0d6efd !important;
+}
+body.dark-mode .form-control,
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"],
+body.dark-mode select {
+    background-color: #23272b !important;
+    color: #e0e0e0 !important;
+    border-color: #343a40 !important;
+}
+body.dark-mode label,
+body.dark-mode .form-label,
+body.dark-mode .form-check-label {
+    color: #e0e0e0 !important;
+}
+body.dark-mode .btn,
+body.dark-mode .btn-outline-secondary {
+    background-color: #23272b;
+    color: #e0e0e0;
+    border-color: #343a40;
+}
+body.dark-mode .btn-primary,
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-primary:focus {
+    background-color: #00bcd4 !important;
+    border-color: #00bcd4 !important;
+    color: #181a1b !important;
+}
+body.dark-mode .btn-success,
+body.dark-mode .btn-success:hover,
+body.dark-mode .btn-success:focus {
+    background-color: #43ea7f !important;
+    border-color: #43ea7f !important;
+    color: #181a1b !important;
+}
+body.dark-mode .btn-info,
+body.dark-mode .btn-info:hover,
+body.dark-mode .btn-info:focus {
+    background-color: #ffb347 !important;
+    border-color: #ffb347 !important;
+    color: #181a1b !important;
+}
+body.dark-mode .btn-outline-secondary:hover,
+body.dark-mode .btn-outline-secondary:focus {
+    background-color: #343a40 !important;
+    color: #00fff7 !important;
+}
+body.dark-mode .alert {
+    background-color: #23272b;
+    color: #e0e0e0;
+    border-color: #343a40;
+}
+body.dark-mode .dropdown-menu {
+    background-color: #23272b !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode .dropdown-item {
+    color: #e0e0e0 !important;
+}
+body.dark-mode .dropdown-item:hover, 
+body.dark-mode .dropdown-item:focus {
+    background-color: #343a40 !important;
+    color: #00fff7 !important;
+}
+body.dark-mode .dropdown-item.active, 
+body.dark-mode .dropdown-item:active {
+    background-color: #00bcd4 !important;
+    color: #181a1b !important;
+}
+body.dark-mode .progress {
+    background-color: #343a40;
+}
+body.dark-mode .progress-bar.bg-success {
+    background-color: #198754 !important;
+}
+body.dark-mode .progress-bar.bg-danger {
+    background-color: #dc3545 !important;
+}
+body.dark-mode .form-check-input:checked {
+    background-color: #00bcd4;
+    border-color: #00bcd4;
+}
+body.dark-mode .form-check-input {
+    background-color: #23272b;
+    border-color: #343a40;
+}
+body.dark-mode .border-bottom {
+    border-bottom: 1px solid #343a40 !important;
+}
+body.dark-mode .bg-light {
+    background-color: #23272b !important;
+}
+body.dark-mode .text-primary {
+    color: #6ea8fe !important;
+}
+body.dark-mode .text-success {
+    color: #28a745 !important;
+}
+body.dark-mode .text-danger {
+    color: #dc3545 !important;
+}
+body.dark-mode .btn-close {
+    filter: invert(1);
+}
+body.dark-mode .fa-moon {
+    color: #f7d774;
+}
+body.dark-mode .fa-sun {
+    color: #f7d774;
+}
+
+/* --- HOVERS Y BOTONES EN MODO OSCURO --- */
+body.dark-mode label:hover,
+body.dark-mode .form-check-label:hover,
+body.dark-mode .dropdown-item:hover,
+body.dark-mode .btn:hover,
+body.dark-mode .btn:focus {
+    background-color: #23272b !important;
+    color: #00fff7 !important;
+}
+
+body.dark-mode .bold,
+body.dark-mode .card.question,
+body.dark-mode .form-check-label,
+body.dark-mode label,
+body.dark-mode .question-text,
+body.dark-mode .form-label {
+    color: #e0f7fa !important;
+}
+body.dark-mode .card.question {
+    background-color: #23272b !important;
+}
+body.dark-mode .form-check-input:checked + .form-check-label {
+    color: #00fff7 !important;
+}
