@@ -1,0 +1,36 @@
+{
+  "name": "ia-questions-test",
+  "version": "1.0.0",
+  "description": "Aplicación web para la generación y gestión de preguntas de examen del Curso de Especialización en Inteligencia Artificial y Big Data",
+  "main": "js/quiz.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "validate": "node js/validator.js",
+    "dev": "npx http-server -p 8080",
+    "lint": "echo 'Linting not configured yet'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdamiancabello/IA-Questions-test.git"
+  },
+  "keywords": [
+    "education",
+    "quiz",
+    "ai",
+    "bigdata",
+    "test",
+    "questions"
+  ],
+  "author": "IA Questions Test Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.0.0",
+    "fs-extra": "^11.2.0",
+    "jsdom": "^23.0.0",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {}
+}

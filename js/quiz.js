@@ -12,16 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Define una variable para almacenar los datos globalmente
     let globalData = {};
 
-    // Función para decodificar secuencias Unicode en una cadena
-    function decodeUnicode(str) {
-        return str.replace(/\\u([\dA-Fa-f]{4})/g, (match, grp) =>
-            String.fromCharCode(parseInt(grp, 16))
-        );
-    }
-
-    // Cargar los temas del JSON al iniciar
-    fetch('schema.json')
-        .then(response => response.json())
+    // Cargar los temas del JSON al iniciar (usando loadJSON de utils.js con caché)
+    loadJSON('data/schema.json')
         .then(data => {
             globalData = data; // Guarda los datos para uso global
             
@@ -124,19 +116,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     
         if (!selectedSubject) {
-            showAlert('Por favor, selecciona una asignatura.', 'warning');
+            showQuizAlert('Por favor, selecciona una asignatura.', 'warning');
             return;
         }
-        
+
         if (selectedThemes.length === 0) {
-            showAlert('Por favor, selecciona al menos un tema.', 'warning');
+            showQuizAlert('Por favor, selecciona al menos un tema.', 'warning');
             return;
         }
-    
+
         // Usar let en lugar de const para permitir modificar el valor más adelante
         let questionCount = parseInt(questionCountInput.value, 10);
         if (questionCount < 1) {
-            showAlert('El número de preguntas debe ser al menos 1.', 'warning');
+            showQuizAlert('El número de preguntas debe ser al menos 1.', 'warning');
             return;
         }
         
@@ -150,38 +142,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (filteredQuestions.length === 0) {
-            showAlert('No hay preguntas disponibles para los temas seleccionados.', 'warning');
+            showQuizAlert('No hay preguntas disponibles para los temas seleccionados.', 'warning');
             return;
         }
-    
+
         if (filteredQuestions.length < questionCount) {
-            showAlert(`Solo hay ${filteredQuestions.length} preguntas disponibles. Se mostrarán todas.`, 'info');
+            showQuizAlert(`Solo hay ${filteredQuestions.length} preguntas disponibles. Se mostrarán todas.`, 'info');
             questionCount = filteredQuestions.length;
         }
         
         startQuiz(filteredQuestions, questionCount);
     });
     
-    // Función para mostrar alertas
-    function showAlert(message, type = 'danger') {
-        const alertDiv = document.createElement('div');
-        alertDiv.className = `alert alert-${type} alert-dismissible fade show mt-3`;
-        alertDiv.role = 'alert';
-        
-        alertDiv.innerHTML = `
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        `;
-        
-        // Insertar la alerta antes del contenedor de selección
-        document.getElementById('quiz-selection').prepend(alertDiv);
-        
-        // Auto-cerrar después de 5 segundos
-        setTimeout(() => {
-            if (alertDiv && alertDiv.parentNode) {
-                alertDiv.parentNode.removeChild(alertDiv);
-            }
-        }, 5000);
+    // Función auxiliar para mostrar alertas (usa showAlert de utils.js)
+    function showQuizAlert(message, type = 'danger') {
+        const container = document.getElementById('quiz-selection');
+        return showAlert(message, type, container);
     }
 
     function startQuiz(questionsArray, questionCount) {
@@ -211,6 +187,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Event listener para el botón de volver
         document.getElementById('back-to-selection').addEventListener('click', resetQuiz);
+
+        // Usar DocumentFragment para mejorar performance del renderizado
+        const fragment = document.createDocumentFragment();
 
         // Crear una card para cada pregunta
         limitedQuestions.forEach((question, index) => {
@@ -310,8 +289,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             card.appendChild(answerContainer);
-            quizQuestionsContainer.appendChild(card);
+            fragment.appendChild(card);
         });
+
+        // Agregar todas las preguntas al DOM de una vez (mejor performance)
+        quizQuestionsContainer.appendChild(fragment);
 
         // Agregar botón para corregir respuestas
         const submitButtonContainer = document.createElement('div');
@@ -531,15 +513,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Función para mezclar aleatoriamente un array
-    function shuffleArray(array) {
-        const newArray = [...array];
-        for (let i = newArray.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [newArray[i], newArray[j]] = [newArray[j], newArray[i]]; // Intercambio de elementos
-        }
-        return newArray;
-    }
+    // shuffleArray ahora se usa desde utils.js
 
     function resetQuiz() {
         // Hacer visible el contenedor de quiz nuevamente
@@ -563,19 +537,18 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validaciones básicas
         if (!selectedSubject) {
-            showAlert("Por favor, selecciona una asignatura primero.", 'warning');
+            showQuizAlert("Por favor, selecciona una asignatura primero.", 'warning');
             return;
         }
         
-        fetch('schema.json')
-            .then(response => response.json())
+        loadJSON('data/schema.json')
             .then(data => {
                 const questions = data[selectedSubject];
                 generatePDF(questions, selectedSubject); 
             })
             .catch(error => {
                 console.error('Error generando PDF:', error);
-                showAlert("Ocurrió un error al generar el PDF.", 'danger');
+                showQuizAlert("Ocurrió un error al generar el PDF.", 'danger');
             });
     });
 
@@ -587,12 +560,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // Validaciones básicas
         if (!selectedSubject) {
-            showAlert("Por favor, selecciona una asignatura primero.", 'warning');
+            showQuizAlert("Por favor, selecciona una asignatura primero.", 'warning');
             return;
         }
         
         if (selectedThemes.length === 0) {
-            showAlert("Por favor, selecciona al menos un tema.", 'warning');
+            showQuizAlert("Por favor, selecciona al menos un tema.", 'warning');
             return;
         }
     
@@ -606,7 +579,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     
         if (Object.keys(filteredQuestions).length === 0) {
-            showAlert("No hay preguntas en los temas seleccionados.", 'warning');
+            showQuizAlert("No hay preguntas en los temas seleccionados.", 'warning');
             return;
         }
     
@@ -780,7 +753,7 @@ document.addEventListener('DOMContentLoaded', function() {
         doc.save(fileName);
         
         // Mostrar mensaje de éxito
-        showAlert(`PDF generado con éxito: "${fileName}"`, 'success');
+        showQuizAlert(`PDF generado con éxito: "${fileName}"`, 'success');
     }
 
     // --- MODO OSCURO ---

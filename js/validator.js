@@ -1,14 +1,12 @@
-// validateSchema.js
+// validator.js - Schema validation for IA Questions Test
 
 const fs = require('fs');
-const filePath = 'schema.json';
+const path = require('path');
+const filePath = path.join(__dirname, '../data/schema.json');
 
-// Función para decodificar secuencias Unicode en una cadena
-function decodeUnicode(str) {
-  return str.replace(/\\u([\dA-Fa-f]{4})/g, (match, grp) =>
-    String.fromCharCode(parseInt(grp, 16))
-  );
-}
+// Importar utilidades compartidas
+const utils = require('./utils.js');
+const { decodeUnicode } = utils;
 
 // Función para normalizar el texto de las preguntas para comparación
 function normalizeQuestionText(text) {

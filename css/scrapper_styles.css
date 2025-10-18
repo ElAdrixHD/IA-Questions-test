@@ -1,9 +1,10 @@
-/* Estilos del Extractor de Preguntas */
+/**
+ * Scrapper Styles - IA Questions Test
+ * @fileoverview Estilos específicos para el extractor de preguntas
+ * @note Los estilos comunes están en common.css
+ */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-}
+/* Nota: estilos de body, .question, animaciones están en common.css */
 
 /* Contenedor del textarea */
 .html-input-container {
@@ -25,28 +26,9 @@ body {
     border-radius: 0.25rem;
 }
 
-/* Estilo para las preguntas extraídas */
-.question {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border-left: 4px solid #007bff;
-    animation: fadeIn 0.3s ease-in-out;
-}
+/* Nota: .question y .question-text base están en common.css */
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.question-text {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #1a1a1a;
-}
+/* Estilos específicos para preguntas extraídas */
 
 .question-type {
     margin-bottom: 15px;

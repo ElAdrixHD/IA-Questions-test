@@ -1,35 +1,13 @@
 let currentSchema = null;
 let scrapedQuestions = [];
 
-// Función para decodificar secuencias Unicode en una cadena
-function decodeUnicode(str) {
-    return str.replace(/\\u([\dA-Fa-f]{4})/g, (match, grp) =>
-        String.fromCharCode(parseInt(grp, 16))
-    );
-}
+// Funciones decodeUnicode y showAlert ahora se usan desde utils.js
 
-// Función para mostrar alertas
-function showAlert(message, type = 'danger') {
-    // Crear elemento de alerta
-    const alertDiv = document.createElement('div');
-    alertDiv.className = `alert alert-${type} alert-dismissible fade show my-3`;
-    alertDiv.role = 'alert';
-    
-    alertDiv.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    `;
-    
-    // Insertar alerta antes del área de procesamiento
+// Función auxiliar para mostrar alertas en scrapper (usa showAlert de utils.js)
+function showScrapperAlert(message, type = 'danger') {
     const saveBtn = document.getElementById('saveBtn');
-    saveBtn.parentNode.parentNode.insertBefore(alertDiv, saveBtn.parentNode);
-    
-    // Auto-eliminar después de 5 segundos
-    setTimeout(() => {
-        if (alertDiv && alertDiv.parentNode) {
-            alertDiv.parentNode.removeChild(alertDiv);
-        }
-    }, 20000);
+    const container = saveBtn ? saveBtn.parentNode.parentNode : document.querySelector('.card-body');
+    return showAlert(message, type, container, 20000);
 }
 
 // Función para controlar el estado de procesamiento en la UI
@@ -54,16 +32,14 @@ function toggleProcessingState(isProcessing) {
     }
 }
 
-// Cargar schema automáticamente
+// Cargar schema automáticamente (usando loadJSON de utils.js con caché)
 window.addEventListener('load', async () => {
     try {
-        const response = await fetch('./schema.json');
-        if (!response.ok) throw new Error('No se encontró el schema.json');
-        currentSchema = await response.json();
+        currentSchema = await loadJSON('data/schema.json');
         populateSubjectSelect();
     } catch (error) {
         console.error(error);
-        showAlert('Error cargando schema: ' + error.message, 'danger');
+        showScrapperAlert('Error cargando schema: ' + error.message, 'danger');
     }
 });
 
@@ -463,7 +439,7 @@ function updateAnswersDisplay(question, qIndex, container) {
             deleteBtn.addEventListener('click', function() {
                 // No permitir eliminar si solo hay una respuesta
                 if (question.answers.length <= 1) {
-                    showAlert('Debe existir al menos una opción de respuesta.', 'warning');
+                    showScrapperAlert('Debe existir al menos una opción de respuesta.', 'warning');
                     return;
                 }
                 
@@ -487,7 +463,7 @@ document.getElementById('processBtn').addEventListener('click', () => {
     const html = document.getElementById('htmlInput').value.trim();
     
     if (!html) {
-        showAlert('Por favor, inserta el código HTML para procesar.', 'warning');
+        showScrapperAlert('Por favor, inserta el código HTML para procesar.', 'warning');
         return;
     }
     
@@ -501,7 +477,7 @@ document.getElementById('processBtn').addEventListener('click', () => {
             
             // Si no hay preguntas nuevas, mostrar mensaje
             if (newQuestions.length === 0) {
-                showAlert('No se encontraron preguntas en el HTML proporcionado.', 'warning');
+                showScrapperAlert('No se encontraron preguntas en el HTML proporcionado.', 'warning');
                 toggleProcessingState(false);
                 return;
             }
@@ -518,12 +494,12 @@ document.getElementById('processBtn').addEventListener('click', () => {
             // Informar si se filtraron duplicados
             if (uniqueNewQuestions.length < newQuestions.length) {
                 const duplicates = newQuestions.length - uniqueNewQuestions.length;
-                showAlert(`Se encontraron ${duplicates} preguntas duplicadas que no se añadirán.`, 'info');
+                showScrapperAlert(`Se encontraron ${duplicates} preguntas duplicadas que no se añadirán.`, 'info');
             }
             
             // Si no hay preguntas nuevas únicas, terminar
             if (uniqueNewQuestions.length === 0) {
-                showAlert('Todas las preguntas ya existen en la lista actual.', 'info');
+                showScrapperAlert('Todas las preguntas ya existen en la lista actual.', 'info');
                 toggleProcessingState(false);
                 document.getElementById('htmlInput').value = '';
                 return;
@@ -533,7 +509,7 @@ document.getElementById('processBtn').addEventListener('click', () => {
             scrapedQuestions = scrapedQuestions.concat(uniqueNewQuestions);
             
             // Mostrar mensaje de éxito
-            showAlert(`Se han extraído ${uniqueNewQuestions.length} preguntas exitosamente.`, 'success');
+            showScrapperAlert(`Se han extraído ${uniqueNewQuestions.length} preguntas exitosamente.`, 'success');
             
             // Mostrar todas las preguntas acumuladas
             displayResults(scrapedQuestions);
@@ -542,7 +518,7 @@ document.getElementById('processBtn').addEventListener('click', () => {
             document.getElementById('htmlInput').value = '';
         } catch (error) {
             console.error('Error procesando HTML:', error);
-            showAlert('Ocurrió un error al procesar el HTML.', 'danger');
+            showScrapperAlert('Ocurrió un error al procesar el HTML.', 'danger');
         } finally {
             toggleProcessingState(false);
         }
@@ -834,17 +810,17 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
     console.log('Preguntas extraídas:', scrapedQuestions.length); // Debug
     
     if (!selectedSubject) {
-        showAlert('Por favor, selecciona una asignatura.', 'warning');
+        showScrapperAlert('Por favor, selecciona una asignatura.', 'warning');
         return;
     }
     
     if (!selectedTopic) {
-        showAlert('Por favor, selecciona un tema.', 'warning');
+        showScrapperAlert('Por favor, selecciona un tema.', 'warning');
         return;
     }
     
     if (scrapedQuestions.length === 0) {
-        showAlert('No hay preguntas para guardar.', 'warning');
+        showScrapperAlert('No hay preguntas para guardar.', 'warning');
         return;
     }
     
@@ -888,7 +864,7 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
             });
 
             if (newQuestions.length === 0) {
-                showAlert('Todas las preguntas ya existen en el tema seleccionado.', 'warning');
+                showScrapperAlert('Todas las preguntas ya existen en el tema seleccionado.', 'warning');
                 toggleProcessingState(false);
                 return;
             }
@@ -912,7 +888,7 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             
-            showAlert(`Se añadieron ${newQuestions.length} nuevas preguntas al tema ${decodeUnicode(selectedTopic)}.`, 'success');
+            showScrapperAlert(`Se añadieron ${newQuestions.length} nuevas preguntas al tema ${decodeUnicode(selectedTopic)}.`, 'success');
             
             // Limpiar las preguntas extraídas
             scrapedQuestions = [];
@@ -922,7 +898,7 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
             document.getElementById('saveBtn').disabled = true;
         } catch (error) {
             console.error('Error guardando preguntas:', error);
-            showAlert('Ocurrió un error al guardar las preguntas.', 'danger');
+            showScrapperAlert('Ocurrió un error al guardar las preguntas.', 'danger');
         } finally {
             toggleProcessingState(false);
         }

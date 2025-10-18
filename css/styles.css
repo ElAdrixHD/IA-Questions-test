@@ -1,10 +1,10 @@
-/* Estilos personalizados complementarios a Bootstrap */
+/**
+ * Quiz Styles - IA Questions Test
+ * @fileoverview Estilos específicos para el generador de tests
+ * @note Los estilos comunes están en common.css
+ */
 
-/* Estilos generales */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-}
+/* Nota: estilos de body, .question, animaciones están en common.css */
 
 /* Estilos para el ASCII logo */
 .ascii-logo {
@@ -17,24 +17,14 @@ body {
     color: #007bff;
 }
 
-/* Estilos mejorados para las cards de preguntas */
-.card.question {
-    margin-bottom: 1.5rem;
-    border-left: 4px solid #007bff;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+/* Nota: .card.question está en common.css */
 
-.card.question:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
-/* Estilos para las preguntas */
+/* Estilos específicos para preguntas del quiz */
 .bold {
     font-weight: 600;
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: #212529;
+    color: var(--text-dark);
 }
 
 /* Badges para los tipos de preguntas */
